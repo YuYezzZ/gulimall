@@ -9,10 +9,6 @@
 package com.yuye.gulimall.common.utils;
 
 
-
-import java.util.Optional;
-import java.util.stream.Stream;
-
 /**
  * 常量
  *
@@ -103,22 +99,31 @@ public class Constant {
             return value;
         }
     }
+/*
 
-    /**
+    */
+/**
      * 云服务商
-     */
+     *//*
+
     public enum CloudService {
-        /**
+        */
+/**
          * 七牛云
-         */
+         *//*
+
         QINIU(1, QiniuGroup.class),
-        /**
+        */
+/**
          * 阿里云
-         */
+         *//*
+
         ALIYUN(2, AliyunGroup.class),
-        /**
+        */
+/**
          * 腾讯云
-         */
+         *//*
+
         QCLOUD(3, QcloudGroup.class);
 
         private int value;
@@ -146,5 +151,6 @@ public class Constant {
             return first.get();
         }
     }
+*/
 
 }

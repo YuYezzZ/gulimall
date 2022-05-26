@@ -1,20 +1,15 @@
 package com.yuye.gulimall.product.controller;
 
-import java.util.Arrays;
-import java.util.Map;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.yuye.gulimall.common.utils.PageUtils;
+import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.product.entity.AttrGroupEntity;
 import com.yuye.gulimall.product.service.AttrGroupService;
-import com.yuye.common.utils.PageUtils;
-import com.yuye.common.utils.R;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 

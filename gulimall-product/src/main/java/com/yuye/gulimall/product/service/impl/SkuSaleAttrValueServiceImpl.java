@@ -1,16 +1,16 @@
 package com.yuye.gulimall.product.service.impl;
 
-import org.springframework.stereotype.Service;
-import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.yuye.common.utils.PageUtils;
-import com.yuye.common.utils.Query;
-
+import com.yuye.gulimall.common.utils.PageUtils;
+import com.yuye.gulimall.common.utils.Query;
 import com.yuye.gulimall.product.dao.SkuSaleAttrValueDao;
 import com.yuye.gulimall.product.entity.SkuSaleAttrValueEntity;
 import com.yuye.gulimall.product.service.SkuSaleAttrValueService;
+import org.springframework.stereotype.Service;
+
+import java.util.Map;
 
 
 @Service("skuSaleAttrValueService")

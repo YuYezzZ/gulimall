@@ -1,7 +1,7 @@
 package com.yuye.gulimall.product.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.yuye.common.utils.PageUtils;
+import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.product.entity.SkuInfoEntity;
 
 import java.util.Map;
