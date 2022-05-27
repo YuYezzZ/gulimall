@@ -14,7 +14,7 @@
     <groupId>com.yuye.gulimall</groupId>
     <artifactId>gulimall-product</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <description>谷粒商城-</description>
+    <description>谷粒商城-商品服务</description>
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>

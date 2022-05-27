@@ -1,7 +1,9 @@
 package com.yuye.gulimall.ware;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 /**
  * @Auther: yuye
@@ -10,6 +12,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @version: 1.0
  */
 @SpringBootApplication
+@EnableDiscoveryClient
+@MapperScan("com.yuye.gulimall.ware.dao")
 public class GulimallWareApplication {
     //程序入口
     public static void main(String[] args) {
