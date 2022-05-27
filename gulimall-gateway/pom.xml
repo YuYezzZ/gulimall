@@ -10,8 +10,10 @@
         <version>2.1.8.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-
+    <groupId>com.yuye.gulimall</groupId>
     <artifactId>gulimall-gateway</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <description>谷粒商城-网关服务</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -19,28 +21,28 @@
     </properties>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
-        <!--商城公共服务-->
+        <!--nacos服务注册发现依赖-->
         <dependency>
-            <groupId>com.yuye.gulimall</groupId>
-            <artifactId>gulimall-common</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--nacos服务配置依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
 
     </dependencies>
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -50,7 +52,14 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
+            <!--spring-cloud-alibaba依赖管理-->
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>2.1.0.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
     <build>

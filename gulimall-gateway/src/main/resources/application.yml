@@ -3,7 +3,17 @@ spring:
     nacos:
       discovery:
         server-addr: 192.168.127.129:8848
+    gateway:
+      routes:
+        - id: test_rout
+          uri: https://www.baidu.com
+          predicates:
+            - Query=url,baidu
+        - id: qq_rout
+          uri: https://www.qq.com
+          predicates:
+            - Query=url,qq
   application:
     name: gulimall-gateway
 server:
-  port: 10086
+  port: 88

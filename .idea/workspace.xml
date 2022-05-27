@@ -5,37 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/GulimallCouponApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/GulimallCouponApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/target/classes/SpringBoot.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/java/com/yuye/gulimall/member/GulimallMemberApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/java/com/yuye/gulimall/member/GulimallMemberApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-member/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-member/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yuye/gulimall/order/GulimallOrderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/java/com/yuye/gulimall/order/GulimallOrderApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-member/target/classes/SpringBoot.yaml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-order/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-order/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/GulimallWareApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/GulimallWareApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/src/main/resources/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/src/main/resources/generator.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/src/main/resources/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/src/main/resources/template/Controller.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/src/main/resources/template/Service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/src/main/resources/template/Service.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/src/main/resources/template/ServiceImpl.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/src/main/resources/template/ServiceImpl.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/target/classes/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/target/classes/generator.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/target/classes/template/Controller.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/target/classes/template/Controller.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/target/classes/template/Service.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/target/classes/template/Service.java.vm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/renren-generator-master/target/classes/template/ServiceImpl.java.vm" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/target/classes/template/ServiceImpl.java.vm" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +46,6 @@
       <MavenGeneralSettings>
         <option name="localRepository" value="E:\Program Files\apache-maven-3.8.4\mvn_resp" />
         <option name="mavenHome" value="$PROJECT_DIR$/../../../Program Files/apache-maven-3.8.4" />
-        <option name="useMavenConfig" value="true" />
         <option name="userSettingsFile" value="E:\Program Files\apache-maven-3.8.4\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -95,7 +71,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-gateway/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-order/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3992359" />
@@ -103,11 +79,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-order\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-gateway\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-common\src\main\java\com\yuye\gulimall\common" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-common\src\main\java\com\yuye\gulimall\common\xss" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-common\src\main\java\com\yuye\gulimall\common\utils" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-ware\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.yuye.gulimall.common.utils" />
@@ -120,7 +96,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GulimallWare">
+  <component name="RunManager" selected="Spring Boot.GulimallGatewayApplication">
     <configuration name="GulimallCouponApplicationTests.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gulimall-coupon" />
       <extension name="coverage">
@@ -247,13 +223,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.GulimallCouponApplicationTests.insert" />
+      <item itemvalue="JUnit.GulimallMemberApplicationTests.insert" />
+      <item itemvalue="JUnit.GulimallOrderApplicationTests.insert" />
+      <item itemvalue="JUnit.GulimallWareApplicationTests.insert" />
+      <item itemvalue="Spring Boot.GulimallMember" />
+      <item itemvalue="Spring Boot.GulimallGatewayApplication" />
+      <item itemvalue="Spring Boot.GulimallOrder" />
+      <item itemvalue="Spring Boot.GulimallProduct" />
+      <item itemvalue="Spring Boot.GulimallWare" />
+      <item itemvalue="Spring Boot.RenrenApplication" />
+      <item itemvalue="Spring Boot.RenrenApplication (1)" />
+      <item itemvalue="Spring Boot.GulimallCouponApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.GulimallCouponApplication" />
+        <item itemvalue="JUnit.GulimallCouponApplicationTests.insert" />
         <item itemvalue="JUnit.GulimallWareApplicationTests.insert" />
         <item itemvalue="JUnit.GulimallOrderApplicationTests.insert" />
         <item itemvalue="JUnit.GulimallMemberApplicationTests.insert" />
-        <item itemvalue="JUnit.GulimallCouponApplicationTests.insert" />
       </list>
     </recent_temporary>
   </component>
@@ -287,5 +277,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
