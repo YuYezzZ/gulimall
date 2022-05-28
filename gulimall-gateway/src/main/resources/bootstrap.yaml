@@ -3,7 +3,7 @@ spring:
     nacos:
       config:
         server-addr: 192.168.127.129:8848
-        namespace: e490e70b-8c91-4d4b-a901-2e4fa47e5f37
+        namespace: 5552f33b-945f-4444-8029-3caa0196ef97
         file-extension: yaml
         group: gateway
   application:
