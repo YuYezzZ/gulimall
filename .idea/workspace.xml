@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/bootstrap.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/resources/bootstrap.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/resources/bootstrap.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,5 +272,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

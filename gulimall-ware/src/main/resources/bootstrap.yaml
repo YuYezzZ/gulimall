@@ -3,7 +3,7 @@
     nacos:
       config:
         server-addr: 192.168.127.129:8848
-        namespace: ed887a8a-8680-4a61-9434-e4eb8e411ba1
+        namespace: dde1c9dc-1679-4257-b5bc-c06774807acc
         file-extension: yaml
         group: order
         ext-config:
