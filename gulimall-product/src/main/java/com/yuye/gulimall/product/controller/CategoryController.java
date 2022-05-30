@@ -64,6 +64,7 @@ public class CategoryController {
     @RequestMapping("/save")
     //@RequiresPermissions("product:category:save")
     public R save(@RequestBody CategoryEntity category){
+        category.setShowStatus(1);
 		categoryService.save(category);
 
         return R.ok();
