@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,6 +26,15 @@ import java.util.Map;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
+
+    /*
+    * 查询所有分类，并按树形结构分层
+    * */
+    @RequestMapping("/list/tree")
+    public R treeList(){
+        List<CategoryEntity> treeList = categoryService.treeList();
+        return  R.ok().put("data",treeList);
+    }
 
     /**
      * 列表
@@ -77,7 +87,7 @@ public class CategoryController {
     //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
 		categoryService.removeByIds(Arrays.asList(catIds));
-
+        categoryService.deleteByIds(Arrays.asList(catIds));
         return R.ok();
     }
 

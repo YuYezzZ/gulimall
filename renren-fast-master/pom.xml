@@ -49,6 +49,7 @@
 		<remote-addr>192.168.1.10:22</remote-addr>
 		<remote-username>root</remote-username>
 		<remote-passwd>123456</remote-passwd>
+		<nacos.version>2021.0.1.0</nacos.version>
 	</properties>
 
 	<dependencies>
@@ -236,6 +237,12 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
+		</dependency>
+		<!--nacos服务注册发现依赖-->
+		<dependency>
+			<groupId>com.alibaba.cloud</groupId>
+			<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+			<version>${nacos.version}</version>
 		</dependency>
 	</dependencies>
 
