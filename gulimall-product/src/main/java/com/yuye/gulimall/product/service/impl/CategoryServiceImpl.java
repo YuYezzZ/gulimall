@@ -1,5 +1,6 @@
 package com.yuye.gulimall.product.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -31,14 +32,14 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     @Override
     public List<CategoryEntity> treeList() {
         List<CategoryEntity> entityList = baseMapper.selectList(null);
-        List<CategoryEntity> treeList = entityList.stream()
+        List<CategoryEntity> treeList = entityList.parallelStream()
                                                     .filter(categoryEntity -> categoryEntity.getParentCid() == 0)
                                                     .map(menu->{
-                                                        menu.setChildren(getChildren(entityList,menu));
+//                                                        menu.setChildren(getChildren(entityList,menu));
+                                                        menu.setChildren(getChildren(menu));
                                                         return menu;})
                                                     .sorted((menu1,menu2)->(menu1.getSort()==null?0:menu1.getSort())- (menu2.getSort()==null?0:menu2.getSort()))
                                                     .collect(Collectors.toList());
-
         return treeList;
     }
 
@@ -52,15 +53,21 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     /*
     * 设置分类子节点方法
     * */
-    private List<CategoryEntity> getChildren(List<CategoryEntity> categoryEntityList,CategoryEntity parent){
-        List<CategoryEntity> children = categoryEntityList.stream()
-                .filter(categoryEntity -> categoryEntity.getParentCid() == parent.getCatId())
-                .map(menu->{
-                    menu.setChildren(getChildren(categoryEntityList,menu));
-                    return menu;
-                })
-                .sorted((menu1,menu2)->(menu1.getSort()==null?0:menu1.getSort())- (menu2.getSort()==null?0:menu2.getSort()))
-                .collect(Collectors.toList());
+    private List<CategoryEntity> getChildren(/*List<CategoryEntity> categoryEntityList,*/CategoryEntity parent){
+//        List<CategoryEntity> children = categoryEntityList.parallelStream()
+//                .filter(categoryEntity -> categoryEntity.getParentCid() == parent.getCatId())
+//                .map(menu->{
+//                    menu.setChildren(getChildren(categoryEntityList,menu));
+//                    System.out.println(menu);
+//                    return menu;
+//                })
+//                .sorted((menu1,menu2)->(menu1.getSort()==null?0:menu1.getSort())- (menu2.getSort()==null?0:menu2.getSort()))
+//                .collect(Collectors.toList());
+        List<CategoryEntity> children = baseMapper.selectList(new LambdaQueryWrapper<CategoryEntity>().eq(CategoryEntity::getParentCid, parent.getCatId()));
+        children=children.stream().map(menu->{
+            menu.setChildren(getChildren(menu));
+            return menu;
+        }).collect(Collectors.toList());
         return children;
     }
 
