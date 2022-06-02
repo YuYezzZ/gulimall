@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
 /**
  * 商品三级分类
  *
@@ -86,6 +85,17 @@ public class CategoryController {
     public R delete(@RequestBody Long[] catIds){
 		categoryService.removeByIds(Arrays.asList(catIds));
         categoryService.deleteByIds(Arrays.asList(catIds));
+        return R.ok();
+    }
+    /*
+    * 分类菜单拖拽工能实现
+    * */
+    @PostMapping("/list/drop")
+    //@RequiresPermissions("product:category:delete")
+    public R drop(@RequestBody List<CategoryEntity> categoryEntities){
+        categoryEntities.stream().forEach(
+                categoryEntity -> categoryService.updateById(categoryEntity)
+        );
         return R.ok();
     }
 
