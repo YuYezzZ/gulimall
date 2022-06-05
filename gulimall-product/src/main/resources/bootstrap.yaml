@@ -17,4 +17,4 @@ spring:
             refresh: true
             group: dev
   application:
-    name: gulimall-order
+    name: gulimall-product

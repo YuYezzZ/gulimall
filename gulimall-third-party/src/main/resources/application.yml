@@ -1,0 +1,15 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.127.129:8848
+    qiniu:
+      accessKey: TkNCiKMBWxvZdXYQNeN0MZMOzfuLBxqr2-evWqHs
+      secretKey: -mpC27OnqB3mY67EmGDmqI8yrtM-NHnRxFy_qVAo
+      bucket: yuye-gulimall
+      host: http://rcxmzaoq4.hn-bkt.clouddn.com
+
+  application:
+    name: gulimall-third-party
+server:
+  port: 10086

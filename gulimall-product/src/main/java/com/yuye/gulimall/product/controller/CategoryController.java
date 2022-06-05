@@ -93,9 +93,7 @@ public class CategoryController {
     @PostMapping("/list/drop")
     //@RequiresPermissions("product:category:delete")
     public R drop(@RequestBody List<CategoryEntity> categoryEntities){
-        categoryEntities.stream().forEach(
-                categoryEntity -> categoryService.updateById(categoryEntity)
-        );
+        categoryService.updateBatchById(categoryEntities);
         return R.ok();
     }
 
