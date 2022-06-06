@@ -1,4 +1,4 @@
-package com.yuye.gulimall.common.volidation;
+package com.yuye.gulimall.common.valid;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;
@@ -14,12 +14,14 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 @Constraint(
-        validatedBy = {}
+        validatedBy = {ListValueConstraintValidator.class}
 )
-public @interface OneOrZero {
-    String message() default "显示状态只能为0或1";
+public @interface ListValue {
+    String message() default "{com.yuye.gulimall.common.valid.ListValue.message}";
 
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
+
+    int[] values() default {};
 }

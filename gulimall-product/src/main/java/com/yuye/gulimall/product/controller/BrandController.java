@@ -2,15 +2,14 @@ package com.yuye.gulimall.product.controller;
 
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
+import com.yuye.gulimall.common.valid.AddGroup;
 import com.yuye.gulimall.product.entity.BrandEntity;
 import com.yuye.gulimall.product.service.BrandService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.Map;
 
 
@@ -55,8 +54,8 @@ public class BrandController {
      */
     @RequestMapping("/save")
     //@RequiresPermissions("product:brand:save")
-    public R save(@Valid @RequestBody BrandEntity brand, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
+    public R save(@Validated({AddGroup.class}) @RequestBody BrandEntity brand/*, BindingResult bindingResult*/){
+        /*if(bindingResult.hasErrors()){
             HashMap<String, String> map = new HashMap<>();
             bindingResult.getFieldErrors().forEach(item->{
                 String name = item.getField();
@@ -65,7 +64,7 @@ public class BrandController {
                 map.put("message",message);
             });
             return R.ok().put("data",map);
-        }
+        }*/
 		brandService.save(brand);
 
         return R.ok();

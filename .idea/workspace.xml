@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="商品服务新增功能优化，新增修改功能">
+    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="商品服务新增拖拽功能">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_5_26_9_44_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2022_5_26_9_44__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/CategoryController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/volidation/OneOrZero.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/BrandController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/BrandEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/BrandEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,19 +72,19 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-ware/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/valid" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3992359" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.runner" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-common\src\main\java\com\yuye\gulimall\common\valid" />
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-common\src\main\java\com\yuye\gulimall\common\volidation" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-ware\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-order\src\main\resources" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-gateway\src\main\resources" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-common\src\main\java\com\yuye\gulimall\common" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.yuye.gulimall.common.utils" />
@@ -218,6 +224,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ThirdPartyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="gulimall-third-party" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yuye.gulimall.thirdparty.ThirdPartyApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="JUnit.GulimallCouponApplicationTests.insert" />
       <item itemvalue="JUnit.GulimallMemberApplicationTests.insert" />
@@ -230,6 +243,7 @@
       <item itemvalue="Spring Boot.GulimallWare" />
       <item itemvalue="Spring Boot.RenrenApplication" />
       <item itemvalue="Spring Boot.RenrenApplication (1)" />
+      <item itemvalue="Spring Boot.ThirdPartyApplication" />
       <item itemvalue="Spring Boot.GulimallCouponApplication" />
     </list>
     <recent_temporary>
@@ -257,7 +271,9 @@
       <workItem from="1653540656349" duration="1011000" />
       <workItem from="1653551316519" duration="5139000" />
       <workItem from="1654041938869" duration="12969000" />
-      <workItem from="1654130572153" duration="2319000" />
+      <workItem from="1654130572153" duration="2382000" />
+      <workItem from="1654478606417" duration="2412000" />
+      <workItem from="1654499052429" duration="5823000" />
     </task>
     <task id="LOCAL-00001" summary="商品服务新增功能优化，新增修改功能">
       <created>1654076021320</created>
@@ -266,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654076021320</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="商品服务新增拖拽功能">
+      <created>1654161000147</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1654161000147</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -285,6 +308,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="商品服务新增功能优化，新增修改功能" />
+    <MESSAGE value="商品服务新增拖拽功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品服务新增拖拽功能" />
   </component>
 </project>
