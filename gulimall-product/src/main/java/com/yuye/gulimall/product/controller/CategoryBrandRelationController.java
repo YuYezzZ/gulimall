@@ -1,5 +1,6 @@
 package com.yuye.gulimall.product.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.product.entity.CategoryBrandRelationEntity;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,6 +27,17 @@ import java.util.Map;
 public class CategoryBrandRelationController {
     @Autowired
     private CategoryBrandRelationService categoryBrandRelationService;
+    /**
+     * 列表
+     */
+    @RequestMapping("/catelog/list")
+    //@RequiresPermissions("product:categorybrandrelation:list")
+    public R list(@RequestParam Long brandId){
+        List<CategoryBrandRelationEntity> list = categoryBrandRelationService.list(new LambdaQueryWrapper<CategoryBrandRelationEntity>().eq(CategoryBrandRelationEntity::getBrandId, brandId));
+
+
+        return R.ok().put("data", list);
+    }
 
     /**
      * 列表
@@ -45,7 +58,6 @@ public class CategoryBrandRelationController {
     //@RequiresPermissions("product:categorybrandrelation:info")
     public R info(@PathVariable("id") Long id){
 		CategoryBrandRelationEntity categoryBrandRelation = categoryBrandRelationService.getById(id);
-
         return R.ok().put("categoryBrandRelation", categoryBrandRelation);
     }
 
@@ -55,7 +67,7 @@ public class CategoryBrandRelationController {
     @RequestMapping("/save")
     //@RequiresPermissions("product:categorybrandrelation:save")
     public R save(@RequestBody CategoryBrandRelationEntity categoryBrandRelation){
-		categoryBrandRelationService.save(categoryBrandRelation);
+		categoryBrandRelationService.saveName(categoryBrandRelation);
 
         return R.ok();
     }

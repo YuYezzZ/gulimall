@@ -55,7 +55,6 @@ public class AttrAttrgroupRelationController {
     //@RequiresPermissions("product:attrattrgrouprelation:save")
     public R save(@RequestBody AttrAttrgroupRelationEntity attrAttrgroupRelation){
 		attrAttrgroupRelationService.save(attrAttrgroupRelation);
-
         return R.ok();
     }
 

@@ -34,7 +34,6 @@ public class AttrGroupController {
     public R list(@RequestParam Map<String, Object> params, @PathVariable("catId") Long catId) {
 //        PageUtils page = attrGroupService.queryPage(params);
         PageUtils page = attrGroupService.queryPageId(params, catId);
-
         return R.ok().put("page", page);
     }
 

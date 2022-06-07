@@ -80,5 +80,12 @@ public class AttrController {
 
         return R.ok();
     }
-
+    /*
+    * 获取分类规格参数
+    * */
+    @RequestMapping("/base/list/{catelogId}")
+    public  R baseList(@RequestParam Map<String, Object> params,@PathVariable("catelogId") Long catelogId){
+        PageUtils page = attrService.queryPageByCid(params,catelogId);
+        return R.ok();
+    }
 }
