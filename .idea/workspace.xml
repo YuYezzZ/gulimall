@@ -7,9 +7,13 @@
     <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="商品服务新增拖拽功能">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/AttrGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/AttrGroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/CategoryEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/CategoryEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/AttrGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/AttrGroupService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/AttrGroupServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/AttrGroupServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/test/java/com/yuye/gulimall/product/GulimallProductApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/test/java/com/yuye/gulimall/product/GulimallProductApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renren-generator-master/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/renren-generator-master/src/main/resources/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/renren-generator-master/src/main/resources/generator.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +98,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GulimallGatewayApplication">
+  <component name="RunManager" selected="JUnit.GulimallProductApplicationTests.findParentIdstest">
     <configuration name="GulimallCouponApplicationTests.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gulimall-coupon" />
       <extension name="coverage">
@@ -111,33 +115,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GulimallMemberApplicationTests.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-member" />
+    <configuration name="GulimallProductApplicationTests.findParentIdstest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-product" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yuye.gulimall.member.*" />
+          <option name="PATTERN" value="com.yuye.gulimall.product.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.yuye.gulimall.member" />
-      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.member.GulimallMemberApplicationTests" />
-      <option name="METHOD_NAME" value="insert" />
+      <option name="PACKAGE_NAME" value="com.yuye.gulimall.product" />
+      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.product.GulimallProductApplicationTests" />
+      <option name="METHOD_NAME" value="findParentIdstest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GulimallOrderApplicationTests.insert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-order" />
+    <configuration name="GulimallProductApplicationTests.test1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-product" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yuye.gulimall.order.*" />
+          <option name="PATTERN" value="com.yuye.gulimall.product.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.yuye.gulimall.order" />
-      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.order.GulimallOrderApplicationTests" />
-      <option name="METHOD_NAME" value="insert" />
+      <option name="PACKAGE_NAME" value="com.yuye.gulimall.product" />
+      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.product.GulimallProductApplicationTests" />
+      <option name="METHOD_NAME" value="test1" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -230,8 +234,6 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.GulimallCouponApplicationTests.insert" />
-      <item itemvalue="JUnit.GulimallMemberApplicationTests.insert" />
-      <item itemvalue="JUnit.GulimallOrderApplicationTests.insert" />
       <item itemvalue="JUnit.GulimallWareApplicationTests.insert" />
       <item itemvalue="Spring Boot.GulimallMember" />
       <item itemvalue="Spring Boot.GulimallGatewayApplication" />
@@ -242,14 +244,16 @@
       <item itemvalue="Spring Boot.RenrenApplication (1)" />
       <item itemvalue="Spring Boot.ThirdPartyApplication" />
       <item itemvalue="Spring Boot.GulimallCouponApplication" />
+      <item itemvalue="JUnit.GulimallProductApplicationTests.test1" />
+      <item itemvalue="JUnit.GulimallProductApplicationTests.findParentIdstest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.GulimallCouponApplication" />
+        <item itemvalue="JUnit.GulimallProductApplicationTests.findParentIdstest" />
+        <item itemvalue="JUnit.GulimallProductApplicationTests.test1" />
         <item itemvalue="JUnit.GulimallCouponApplicationTests.insert" />
         <item itemvalue="JUnit.GulimallWareApplicationTests.insert" />
-        <item itemvalue="JUnit.GulimallOrderApplicationTests.insert" />
-        <item itemvalue="JUnit.GulimallMemberApplicationTests.insert" />
       </list>
     </recent_temporary>
   </component>
@@ -302,7 +306,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />

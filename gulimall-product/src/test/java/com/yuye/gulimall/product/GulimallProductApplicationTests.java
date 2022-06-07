@@ -2,12 +2,16 @@ package com.yuye.gulimall.product;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yuye.gulimall.product.entity.BrandEntity;
+import com.yuye.gulimall.product.entity.CategoryEntity;
 import com.yuye.gulimall.product.service.BrandService;
+import com.yuye.gulimall.product.service.CategoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import java.util.List;
 
 /**
  * @Auther: yuye
@@ -20,6 +24,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class GulimallProductApplicationTests {
     @Autowired
     private BrandService brandService;
+    @Autowired
+    private CategoryService categoryService;
     
     //测试品牌插入功能
     @Test
@@ -39,5 +45,20 @@ public class GulimallProductApplicationTests {
         BrandEntity one = brandService.getOne(entityLambdaQueryWrapper);
         System.out.println(one);
     }
-    
+    @Test
+    public void findParentIdstest() {
+        List<CategoryEntity> list = categoryService.list();
+        list.stream()
+                .filter(categoryEntity -> categoryEntity.getParentCid() > 0)
+                .forEach(
+                        item -> {
+                            if (item.getCatId() == 34L) {
+                                Long parentCid=item.getParentCid();
+                                System.out.println(parentCid);
+//                                findParentIdstest(parentCid, ids);
+                            }
+                        }
+                );
+    }
+
 }

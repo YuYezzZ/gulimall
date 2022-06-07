@@ -64,7 +64,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
 //                .sorted((menu1,menu2)->(menu1.getSort()==null?0:menu1.getSort())- (menu2.getSort()==null?0:menu2.getSort()))
 //                .collect(Collectors.toList());
         List<CategoryEntity> children = baseMapper.selectList(new LambdaQueryWrapper<CategoryEntity>().eq(CategoryEntity::getParentCid, parent.getCatId()));
-        children=children.stream().map(menu->{
+        children=children.parallelStream().map(menu->{
             menu.setChildren(getChildren(menu));
             return menu;
         }).collect(Collectors.toList());
