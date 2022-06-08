@@ -2,6 +2,7 @@ package com.yuye.gulimall.product.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yuye.gulimall.common.utils.PageUtils;
@@ -11,6 +12,7 @@ import com.yuye.gulimall.product.dao.CategoryBrandRelationDao;
 import com.yuye.gulimall.product.dao.CategoryDao;
 import com.yuye.gulimall.product.entity.*;
 import com.yuye.gulimall.product.service.CategoryBrandRelationService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -43,6 +45,14 @@ public class CategoryBrandRelationServiceImpl extends ServiceImpl<CategoryBrandR
         categoryBrandRelation.setBrandName(brandEntity.getName());
         categoryBrandRelation.setCatelogName(categoryEntity.getName());
         baseMapper.insert(categoryBrandRelation);
+    }
+
+    @Override
+    public void updateDetail(CategoryBrandRelationEntity categoryBrandRelation) {
+        if(StringUtils.isEmpty(categoryBrandRelation.getBrandName())){
+            baseMapper.update(categoryBrandRelation,new UpdateWrapper<CategoryBrandRelationEntity>().lambda().eq(CategoryBrandRelationEntity::getCatelogId,categoryBrandRelation.getCatelogId()));
+        }
+        baseMapper.update(categoryBrandRelation,new UpdateWrapper<CategoryBrandRelationEntity>().lambda().eq(CategoryBrandRelationEntity::getBrandId,categoryBrandRelation.getBrandId()));
     }
 
 }

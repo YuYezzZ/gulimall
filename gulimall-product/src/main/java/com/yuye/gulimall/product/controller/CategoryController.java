@@ -3,8 +3,11 @@ package com.yuye.gulimall.product.controller;
 
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
+import com.yuye.gulimall.product.entity.CategoryBrandRelationEntity;
 import com.yuye.gulimall.product.entity.CategoryEntity;
+import com.yuye.gulimall.product.service.CategoryBrandRelationService;
 import com.yuye.gulimall.product.service.CategoryService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,7 +28,8 @@ import java.util.Map;
 public class CategoryController {
     @Autowired
     private CategoryService categoryService;
-
+    @Autowired
+    private CategoryBrandRelationService categoryBrandRelationService;
     /*
     * 查询所有分类，并按树形结构分层
     * */
@@ -72,7 +76,14 @@ public class CategoryController {
     @RequestMapping("/update")
     //@RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
+
 		categoryService.updateById(category);
+        if(!StringUtils.isEmpty(category.getName())){
+            CategoryBrandRelationEntity categoryBrandRelationEntity = new CategoryBrandRelationEntity();
+            categoryBrandRelationEntity.setCatelogId(category.getCatId());
+            categoryBrandRelationEntity.setCatelogName(category.getName());
+            categoryBrandRelationService.updateDetail(categoryBrandRelationEntity);
+        }
 
         return R.ok();
     }

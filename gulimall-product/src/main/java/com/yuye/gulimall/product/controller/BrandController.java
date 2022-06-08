@@ -4,7 +4,10 @@ import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.common.valid.AddGroup;
 import com.yuye.gulimall.product.entity.BrandEntity;
+import com.yuye.gulimall.product.entity.CategoryBrandRelationEntity;
 import com.yuye.gulimall.product.service.BrandService;
+import com.yuye.gulimall.product.service.CategoryBrandRelationService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +28,8 @@ import java.util.Map;
 public class BrandController {
     @Autowired
     private BrandService brandService;
+    @Autowired
+    private CategoryBrandRelationService categoryBrandRelationService;
 
     /**
      * 列表
@@ -45,7 +50,6 @@ public class BrandController {
     //@RequiresPermissions("product:brand:info")
     public R info(@PathVariable("brandId") Long brandId){
 		BrandEntity brand = brandService.getById(brandId);
-
         return R.ok().put("brand", brand);
     }
 
@@ -66,7 +70,6 @@ public class BrandController {
             return R.ok().put("data",map);
         }*/
 		brandService.save(brand);
-
         return R.ok();
     }
 
@@ -77,7 +80,13 @@ public class BrandController {
     //@RequiresPermissions("product:brand:update")
     public R update(@RequestBody BrandEntity brand){
 		brandService.updateById(brand);
-
+        if(!
+                StringUtils.isEmpty(brand.getName())){
+            CategoryBrandRelationEntity categoryBrandRelationEntity = new CategoryBrandRelationEntity();
+            categoryBrandRelationEntity.setBrandId(brand.getBrandId());
+            categoryBrandRelationEntity.setBrandName(brand.getName());
+            categoryBrandRelationService.updateDetail(categoryBrandRelationEntity);
+        }
         return R.ok();
     }
 

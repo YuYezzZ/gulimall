@@ -84,6 +84,15 @@ public class CategoryBrandRelationController {
     }
 
     /**
+     * 沉余更新
+     */
+    //@RequiresPermissions("product:categorybrandrelation:update")
+    public R updateDetail(@RequestBody CategoryBrandRelationEntity categoryBrandRelation){
+        categoryBrandRelationService.updateDetail(categoryBrandRelation);
+        return R.ok();
+    }
+
+    /**
      * 删除
      */
     @RequestMapping("/delete")
