@@ -1,10 +1,13 @@
 package com.yuye.gulimall.product;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.yuye.gulimall.product.convert.AttrEntityConvert;
+import com.yuye.gulimall.product.entity.AttrEntity;
 import com.yuye.gulimall.product.entity.BrandEntity;
 import com.yuye.gulimall.product.entity.CategoryEntity;
 import com.yuye.gulimall.product.service.BrandService;
 import com.yuye.gulimall.product.service.CategoryService;
+import com.yuye.gulimall.product.vo.AttrBaseVO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,6 +62,16 @@ public class GulimallProductApplicationTests {
                             }
                         }
                 );
+    }
+
+    @Test
+    public void testAttrConvert(){
+        AttrEntity attrEntity = new AttrEntity();
+        attrEntity.setAttrId(3L);
+        attrEntity.setAttrName("你好");
+        attrEntity.setCatelogId(10L);
+        AttrBaseVO attrBaseVO = AttrEntityConvert.INSTANCE.attrEntityDTO2AttrBaseVO(attrEntity);
+        System.out.println(attrBaseVO);
     }
 
 }
