@@ -16,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,6 +26,8 @@ public class CategoryBrandRelationServiceImpl extends ServiceImpl<CategoryBrandR
     private BrandDao brandDao;
     @Autowired
     private CategoryDao categoryDao;
+    @Autowired
+    private CategoryBrandRelationDao categoryBrandRelationDao;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -53,6 +56,12 @@ public class CategoryBrandRelationServiceImpl extends ServiceImpl<CategoryBrandR
             baseMapper.update(categoryBrandRelation,new UpdateWrapper<CategoryBrandRelationEntity>().lambda().eq(CategoryBrandRelationEntity::getCatelogId,categoryBrandRelation.getCatelogId()));
         }
         baseMapper.update(categoryBrandRelation,new UpdateWrapper<CategoryBrandRelationEntity>().lambda().eq(CategoryBrandRelationEntity::getBrandId,categoryBrandRelation.getBrandId()));
+    }
+
+    @Override
+    public List<CategoryBrandRelationEntity> brandList(Long catId) {
+        List<CategoryBrandRelationEntity> categoryBrandRelationEntities = categoryBrandRelationDao.selectList(new LambdaQueryWrapper<CategoryBrandRelationEntity>().eq(CategoryBrandRelationEntity::getCatelogId, catId));
+        return categoryBrandRelationEntities;
     }
 
 }

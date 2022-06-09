@@ -243,6 +243,7 @@
       <item itemvalue="JUnit.GulimallProductApplicationTests.test1" />
       <item itemvalue="JUnit.GulimallProductApplicationTests.findParentIdstest" />
       <item itemvalue="JUnit.GulimallProductApplicationTests.testAttrConvert" />
+      <item itemvalue="JUnit.GulimallProductApplicationTests.testSelectPage" />
       <item itemvalue="Spring Boot.GulimallMember" />
       <item itemvalue="Spring Boot.GulimallGatewayApplication" />
       <item itemvalue="Spring Boot.GulimallOrder" />
@@ -252,7 +253,6 @@
       <item itemvalue="Spring Boot.RenrenApplication (1)" />
       <item itemvalue="Spring Boot.ThirdPartyApplication" />
       <item itemvalue="Spring Boot.GulimallCouponApplication" />
-      <item itemvalue="JUnit.GulimallProductApplicationTests.testSelectPage" />
     </list>
     <recent_temporary>
       <list>
@@ -304,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654765770033</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="商品品牌关联功能全部实现">
+      <created>1654765801847</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1654765801847</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -103,4 +103,14 @@ public class CategoryBrandRelationController {
         return R.ok();
     }
 
+    /**
+     * 根据catId查询品牌
+     */
+    @RequestMapping("/brands/list")
+    //@RequiresPermissions("product:categorybrandrelation:list")
+    public R brandList(@RequestParam Long catId){
+        List<CategoryBrandRelationEntity> categoryBrandRelationEntities = categoryBrandRelationService.brandList(catId);
+
+        return R.ok().put("data", categoryBrandRelationEntities);
+    }
 }
