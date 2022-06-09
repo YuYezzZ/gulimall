@@ -3,6 +3,7 @@ package com.yuye.gulimall.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.product.entity.AttrEntity;
+import com.yuye.gulimall.product.vo.AttrFormVO;
 
 import java.util.Map;
 
@@ -17,6 +18,10 @@ public interface AttrService extends IService<AttrEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
 
-    PageUtils queryPageByCid(Map<String, Object> params,Long catelogId);
+    PageUtils queryPageByBase(Map<String, Object> params,Long catelogId);
+
+    AttrFormVO getAttrFormVOById(Long attrId);
+
+    PageUtils queryPageBySale(Map<String, Object> params, Long catelogId);
 }
 

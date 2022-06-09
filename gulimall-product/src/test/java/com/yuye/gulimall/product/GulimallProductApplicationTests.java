@@ -1,7 +1,10 @@
 package com.yuye.gulimall.product;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.yuye.gulimall.product.convert.AttrEntityConvert;
+import com.yuye.gulimall.product.dao.CategoryDao;
 import com.yuye.gulimall.product.entity.AttrEntity;
 import com.yuye.gulimall.product.entity.BrandEntity;
 import com.yuye.gulimall.product.entity.CategoryEntity;
@@ -29,6 +32,9 @@ public class GulimallProductApplicationTests {
     private BrandService brandService;
     @Autowired
     private CategoryService categoryService;
+
+    @Autowired
+    private CategoryDao categoryDao;
     
     //测试品牌插入功能
     @Test
@@ -72,6 +78,12 @@ public class GulimallProductApplicationTests {
         attrEntity.setCatelogId(10L);
         AttrBaseVO attrBaseVO = AttrEntityConvert.INSTANCE.attrEntityDTO2AttrBaseVO(attrEntity);
         System.out.println(attrBaseVO);
+    }
+
+    @Test
+    public void testSelectPage(){
+        IPage<CategoryEntity> page = categoryDao.selectPage(new Page<>(1, 10), null);
+        System.out.println(page.getRecords());
     }
 
 }

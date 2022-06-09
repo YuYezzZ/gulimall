@@ -2,6 +2,7 @@ package com.yuye.gulimall.product.convert;
 
 import com.yuye.gulimall.product.entity.AttrEntity;
 import com.yuye.gulimall.product.vo.AttrBaseVO;
+import com.yuye.gulimall.product.vo.AttrFormVO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
@@ -17,4 +18,6 @@ import org.springframework.stereotype.Component;
 public interface AttrEntityConvert {
     AttrEntityConvert INSTANCE = Mappers.getMapper(AttrEntityConvert.class);
     AttrBaseVO attrEntityDTO2AttrBaseVO(AttrEntity attrEntity);
+    AttrFormVO attrEntityDTO2AttrFormVO(AttrEntity attrEntity);
+    AttrEntity attrFormVO2AttrEntityDTO(AttrFormVO attrFormVO);
 }

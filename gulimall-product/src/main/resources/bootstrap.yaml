@@ -5,7 +5,7 @@ spring:
         server-addr: 192.168.127.129:8848
         namespace: 6a4fcd2c-21e5-48df-acb1-634baae540fd
         file-extension: yaml
-        group: order
+        group: product
         ext-config:
           - data-id: datasource.yaml
             refresh: true

@@ -3,6 +3,8 @@ package com.yuye.gulimall.product.controller;
 
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
+import com.yuye.gulimall.product.entity.AttrAttrgroupRelationEntity;
+import com.yuye.gulimall.product.entity.AttrEntity;
 import com.yuye.gulimall.product.entity.AttrGroupEntity;
 import com.yuye.gulimall.product.service.AttrGroupService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,4 +84,45 @@ public class AttrGroupController {
         return R.ok();
     }
 
+    /**
+     * 根据分组id获取所有分组关联信息
+     */
+    @RequestMapping("/{attrGroupId}/attr/relation")
+    //@RequiresPermissions("product:attrgroup:info")
+    public R attrRelationByGroupId(@PathVariable("attrGroupId") Long attrGroupId) {
+        List<AttrEntity> list = attrGroupService.attrRelation(attrGroupId);
+        return R.ok().put("data", list);
+    }
+
+    /**
+     * 根据分组id获取所有分组关联信息
+     */
+    @RequestMapping("/attr/relation/delete")
+    //@RequiresPermissions("product:attrgroup:info")
+    public R deleteAttrRelation(@RequestBody List<AttrAttrgroupRelationEntity> list) {
+
+        attrGroupService.removeList(list);
+        return R.ok();
+    }
+
+    /**
+     * 根据分组id获取所有分组关联信息
+     */
+    @RequestMapping("/{attrGroupId}/noattr/relation")
+    //@RequiresPermissions("product:attrgroup:info")
+    public R noattrRelation(@PathVariable("attrGroupId") Long attrGroupId,@RequestParam Map<String, Object> params) {
+        PageUtils page = attrGroupService.noattrRelation(params,attrGroupId);
+        return R.ok().put("page", page);
+    }
+
+    /**
+     * 根据分组id新增分组关联信息
+     */
+    @RequestMapping("/attr/relation")
+    //@RequiresPermissions("product:attrgroup:info")
+    public R attrRelation(@RequestBody List<AttrAttrgroupRelationEntity> list) {
+
+        attrGroupService.saveList(list);
+        return R.ok();
+    }
 }

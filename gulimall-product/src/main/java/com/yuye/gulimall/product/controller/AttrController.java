@@ -2,8 +2,11 @@ package com.yuye.gulimall.product.controller;
 
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
+import com.yuye.gulimall.product.convert.AttrEntityConvert;
 import com.yuye.gulimall.product.entity.AttrEntity;
+import com.yuye.gulimall.product.service.AttrAttrgroupRelationService;
 import com.yuye.gulimall.product.service.AttrService;
+import com.yuye.gulimall.product.vo.AttrFormVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,6 +27,8 @@ import java.util.Map;
 public class AttrController {
     @Autowired
     private AttrService attrService;
+    @Autowired
+    private AttrAttrgroupRelationService attrAttrgroupRelationService;
 
     /**
      * 列表
@@ -43,7 +48,7 @@ public class AttrController {
     @RequestMapping("/info/{attrId}")
     //@RequiresPermissions("product:attr:info")
     public R info(@PathVariable("attrId") Long attrId){
-		AttrEntity attr = attrService.getById(attrId);
+        AttrFormVO attr = attrService.getAttrFormVOById(attrId);
 
         return R.ok().put("attr", attr);
     }
@@ -64,8 +69,14 @@ public class AttrController {
      */
     @RequestMapping("/update")
     //@RequiresPermissions("product:attr:update")
-    public R update(@RequestBody AttrEntity attr){
-		attrService.updateById(attr);
+    public R update(@RequestBody AttrFormVO attrFormVO){
+        Long attrGroupId = attrFormVO.getAttrGroupId();
+        Long attrId = attrFormVO.getAttrId();
+        if(attrGroupId!=null){
+            attrAttrgroupRelationService.updateByAttrId(attrId,attrGroupId);
+        }
+        AttrEntity attrEntity = AttrEntityConvert.INSTANCE.attrFormVO2AttrEntityDTO(attrFormVO);
+        attrService.updateById(attrEntity);
 
         return R.ok();
     }
@@ -85,7 +96,15 @@ public class AttrController {
     * */
     @RequestMapping("/base/list/{catelogId}")
     public  R baseList(@RequestParam Map<String, Object> params,@PathVariable("catelogId") Long catelogId){
-        PageUtils page = attrService.queryPageByCid(params,catelogId);
+        PageUtils page = attrService.queryPageByBase(params,catelogId);
+        return R.ok().put("page",page);
+    }
+    /*
+     * 获取分类销售属性
+     * */
+    @RequestMapping("/sale/list/{catelogId}")
+    public  R saleList(@RequestParam Map<String, Object> params,@PathVariable("catelogId") Long catelogId){
+        PageUtils page = attrService.queryPageBySale(params,catelogId);
         return R.ok().put("page",page);
     }
 }

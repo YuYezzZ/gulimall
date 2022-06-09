@@ -1,5 +1,6 @@
 package com.yuye.gulimall.product.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
@@ -24,6 +25,21 @@ public class AttrAttrgroupRelationServiceImpl extends ServiceImpl<AttrAttrgroupR
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public void updateByAttrId(Long attrId, Long attrGroupId) {
+        AttrAttrgroupRelationEntity attrAttrgroupRelationEntity = baseMapper.selectOne(new LambdaQueryWrapper<AttrAttrgroupRelationEntity>().eq(AttrAttrgroupRelationEntity::getAttrId, attrId));
+        if (attrAttrgroupRelationEntity == null){
+            AttrAttrgroupRelationEntity attrAttrgroupRelationEntity1 = new AttrAttrgroupRelationEntity();
+            attrAttrgroupRelationEntity1.setAttrId(attrId);
+            attrAttrgroupRelationEntity1.setAttrGroupId(attrGroupId);
+            baseMapper.insert(attrAttrgroupRelationEntity1);
+        }else {
+            attrAttrgroupRelationEntity.setAttrGroupId(attrGroupId);
+            baseMapper.updateById(attrAttrgroupRelationEntity);
+        }
+
     }
 
 }
