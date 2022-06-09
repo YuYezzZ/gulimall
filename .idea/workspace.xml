@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="级联选择器后端实现">
+    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="商品品牌关联功能全部实现">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/service/impl/CouponServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/service/impl/CouponServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-coupon/target/classes/SpringBoot.yaml" beforeDir="false" />
@@ -297,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654161000147</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="商品品牌关联功能全部实现">
+      <created>1654765770033</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1654765770033</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,6 +324,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />
     <MESSAGE value="商品服务新增拖拽功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="商品服务新增拖拽功能" />
+    <MESSAGE value="商品品牌关联功能全部实现" />
+    <option name="LAST_COMMIT_MESSAGE" value="商品品牌关联功能全部实现" />
   </component>
 </project>
