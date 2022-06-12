@@ -8,6 +8,8 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.qiniu.util.StringUtils;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.Query;
+import com.yuye.gulimall.product.convert.AttrEntityConvert;
+import com.yuye.gulimall.product.convert.AttrGroupEntityConvert;
 import com.yuye.gulimall.product.dao.AttrAttrgroupRelationDao;
 import com.yuye.gulimall.product.dao.AttrDao;
 import com.yuye.gulimall.product.dao.AttrGroupDao;
@@ -17,6 +19,8 @@ import com.yuye.gulimall.product.entity.AttrGroupEntity;
 import com.yuye.gulimall.product.entity.CategoryEntity;
 import com.yuye.gulimall.product.service.AttrGroupService;
 import com.yuye.gulimall.product.service.CategoryService;
+import com.yuye.gulimall.product.vo.AttrFormVO;
+import com.yuye.gulimall.product.vo.WithattrVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -127,6 +131,27 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         list.stream().forEach(
                 item->attrAttrgroupRelationDao.insert(item)
         );
+    }
+
+    @Override
+    public List<WithattrVO> selectWithattr(Long catelogId) {
+        List<AttrGroupEntity> attrGroupEntities = baseMapper.selectList(new LambdaQueryWrapper<AttrGroupEntity>().eq(AttrGroupEntity::getCatelogId, catelogId));
+        List<WithattrVO> withattrVOList = AttrGroupEntityConvert.INSTANCE.AttrGroupList2WithattrVOList(attrGroupEntities);
+        List<WithattrVO> collect = withattrVOList.stream().map(item -> {
+            Long attrGroupId = item.getAttrGroupId();
+            List<AttrAttrgroupRelationEntity> attrAttrgroupRelationEntities = attrAttrgroupRelationDao.selectList(new LambdaQueryWrapper<AttrAttrgroupRelationEntity>().eq(AttrAttrgroupRelationEntity::getAttrGroupId, attrGroupId));
+            ArrayList<AttrFormVO> attrFormVOS = new ArrayList<>();
+            attrAttrgroupRelationEntities.stream().forEach(attrAttrgroupRelationEntity -> {
+                        Long attrId = attrAttrgroupRelationEntity.getAttrId();
+                        AttrEntity attrEntity = attrDao.selectById(attrId);
+                        AttrFormVO attrFormVO = AttrEntityConvert.INSTANCE.attrEntityDTO2AttrFormVO(attrEntity);
+                        attrFormVOS.add(attrFormVO);
+                    }
+            );
+            item.setAttrs(attrFormVOS);
+            return item;
+        }).collect(Collectors.toList());
+        return collect;
     }
 
 

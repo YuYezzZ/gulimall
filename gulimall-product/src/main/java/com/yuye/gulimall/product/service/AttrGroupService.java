@@ -5,6 +5,7 @@ import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.product.entity.AttrAttrgroupRelationEntity;
 import com.yuye.gulimall.product.entity.AttrEntity;
 import com.yuye.gulimall.product.entity.AttrGroupEntity;
+import com.yuye.gulimall.product.vo.WithattrVO;
 
 import java.util.List;
 import java.util.Map;
@@ -31,5 +32,7 @@ public interface AttrGroupService extends IService<AttrGroupEntity> {
     PageUtils noattrRelation(Map<String, Object> params, Long attrGroupId);
 
     void saveList(List<AttrAttrgroupRelationEntity> list);
+
+    List<WithattrVO> selectWithattr(Long catelogId);
 }
 

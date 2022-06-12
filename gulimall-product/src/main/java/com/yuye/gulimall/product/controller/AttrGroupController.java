@@ -7,6 +7,7 @@ import com.yuye.gulimall.product.entity.AttrAttrgroupRelationEntity;
 import com.yuye.gulimall.product.entity.AttrEntity;
 import com.yuye.gulimall.product.entity.AttrGroupEntity;
 import com.yuye.gulimall.product.service.AttrGroupService;
+import com.yuye.gulimall.product.vo.WithattrVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -124,5 +125,16 @@ public class AttrGroupController {
 
         attrGroupService.saveList(list);
         return R.ok();
+    }
+
+    /**
+     * 获取分类下所有分组&关联属性
+     */
+    @RequestMapping("/{catelogId}/withattr")
+    //@RequiresPermissions("product:attrgroup:info")
+    public R withattr(@PathVariable("catelogId") Long catelogId) {
+
+       List<WithattrVO> withattrVOList= attrGroupService.selectWithattr(catelogId);
+        return R.ok().put("data",withattrVOList);
     }
 }
