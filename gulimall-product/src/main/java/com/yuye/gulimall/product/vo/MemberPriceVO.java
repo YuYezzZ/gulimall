@@ -3,6 +3,7 @@ package com.yuye.gulimall.product.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 
 /**
  * @Auther: yuye
@@ -18,5 +19,5 @@ public class MemberPriceVO implements Serializable {
 
     private String name;
 
-    private double price;
+    private BigDecimal price;
 }

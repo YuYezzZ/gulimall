@@ -3,6 +3,8 @@ package com.yuye.gulimall.common.to;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.lang.Long;
+import java.math.BigDecimal;
 
 /**
  * @Auther: yuye
@@ -16,8 +18,12 @@ public class SpuBoundTO implements Serializable {
 
     private Long spuId;
 
-    private Integer buyBounds;
+    private BigDecimal buyBounds;
 
-    private Integer growBounds;
+    private BigDecimal growBounds;
+
+    public void setSpuId(Long spuId){
+        this.spuId = spuId;
+    }
 
 }

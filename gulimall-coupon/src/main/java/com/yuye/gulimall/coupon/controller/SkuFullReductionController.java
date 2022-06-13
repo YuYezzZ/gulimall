@@ -1,20 +1,15 @@
 package com.yuye.gulimall.coupon.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.yuye.gulimall.coupon.entity.SkuFullReductionEntity;
-import com.yuye.gulimall.coupon.service.SkuFullReductionService;
+import com.yuye.gulimall.common.to.SkuReductionTO;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
+import com.yuye.gulimall.coupon.entity.SkuFullReductionEntity;
+import com.yuye.gulimall.coupon.service.SkuFullReductionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -84,6 +79,16 @@ public class SkuFullReductionController {
     public R delete(@RequestBody Long[] ids){
 		skuFullReductionService.removeByIds(Arrays.asList(ids));
 
+        return R.ok();
+    }
+    /**
+     * 保存所有满减信息
+     */
+    @RequestMapping("/save/info")
+    //@RequiresPermissions("coupon:skufullreduction:save")
+    public R saveInfo(@RequestBody SkuReductionTO skuReductionTO){
+
+        skuFullReductionService.saveSkuReduction(skuReductionTO);
         return R.ok();
     }
 

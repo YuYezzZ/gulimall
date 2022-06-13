@@ -84,7 +84,7 @@ public class SpuInfoController {
     /**
      * 删除
      */
-    @RequestMapping("/save")
+    @PostMapping("/save/all")
     //@RequiresPermissions("product:spuinfo:save")
     public R saveSpuInfo(@RequestBody SpuSaveVO spuSaveVO){
         spuInfoService.saveSpuInfo(spuSaveVO);

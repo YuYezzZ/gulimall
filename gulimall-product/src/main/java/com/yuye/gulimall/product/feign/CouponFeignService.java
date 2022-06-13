@@ -1,5 +1,6 @@
 package com.yuye.gulimall.product.feign;
 
+import com.yuye.gulimall.common.to.SkuReductionTO;
 import com.yuye.gulimall.common.to.SpuBoundTO;
 import com.yuye.gulimall.common.utils.R;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -18,4 +19,6 @@ public interface CouponFeignService {
     R membercoupons();
     @PostMapping("coupon/spubounds/save")
     void saveSpubounds(SpuBoundTO spuBoundTO);
+    @PostMapping("coupon/skufullreduction/save/info")
+    void saveSkuReduction(SkuReductionTO skuReductionTO);
 }

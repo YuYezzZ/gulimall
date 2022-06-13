@@ -3,6 +3,7 @@ package com.yuye.gulimall.product.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -29,17 +30,17 @@ public class SkusVO implements Serializable {
 
     private List<String> descar;
 
-    private Integer fullCount;
+    private int fullCount;
 
-    private double discount;
+    private BigDecimal discount;
 
-    private Integer countStatus;
+    private int countStatus;
 
-    private Integer fullPrice;
+    private BigDecimal fullPrice;
 
-    private Integer reducePrice;
+    private BigDecimal reducePrice;
 
-    private Integer priceStatus;
+    private int priceStatus;
 
     private List<MemberPriceVO> memberPrice;
 

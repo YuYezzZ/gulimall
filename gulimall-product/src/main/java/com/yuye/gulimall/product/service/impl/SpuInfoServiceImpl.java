@@ -3,6 +3,7 @@ package com.yuye.gulimall.product.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.yuye.gulimall.common.to.SkuReductionTO;
 import com.yuye.gulimall.common.to.SpuBoundTO;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.Query;
@@ -62,6 +63,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         spuInfoEntity.setCreateTime(new Date());
         spuInfoEntity.setUpdateTime(new Date());
         this.saveBaseSpuInfo(spuInfoEntity);
+        Long spuId = spuInfoEntity.getId();
         //2.保存spu的描述图片 pms_spu_info_desc
         List<String> decript = spuSaveVO.getDecript();
         ArrayList<SpuInfoDescEntity> spuInfoDescEntities = new ArrayList<>();
@@ -79,7 +81,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             ProductAttrValueEntity productAttrValueEntity = new ProductAttrValueEntity();
             BeanUtils.copyProperties(e, productAttrValueEntity);
             productAttrValueEntity.setAttrName(attrEntity.getAttrName());
-            productAttrValueEntity.setSpuId(spuInfoEntity.getId());
+            productAttrValueEntity.setSpuId(spuId);
             return productAttrValueEntity;
         }).collect(Collectors.toList());
         productAttrValueService.saveList(productAttrValueEntities);
@@ -88,7 +90,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         BoundsVO bounds = spuSaveVO.getBounds();
         SpuBoundTO spuBoundTO = new SpuBoundTO();
         BeanUtils.copyProperties(bounds,spuBoundTO);
-        spuBoundTO.setSpuId(spuInfoEntity.getId());
+        spuBoundTO.setSpuId(spuId);
         couponFeignService.saveSpubounds(spuBoundTO);
         //6.保存当前spu对应的所有sku信息
         //6.1) sku的基本信息 pms_sku_info
@@ -100,7 +102,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 BeanUtils.copyProperties(sku,skuInfoEntity);
                 skuInfoEntity.setBrandId(spuInfoEntity.getBrandId());
                 skuInfoEntity.setCatalogId(spuInfoEntity.getCatalogId());
-                skuInfoEntity.setSpuId(spuInfoEntity.getId());
+                skuInfoEntity.setSpuId(spuId);
                 skuInfoEntity.setSkuDefaultImg(null);
                 List<ImagesVO> skuImages = sku.getImages();
                 if(skuImages != null && skuImages.size()>0) {
@@ -128,6 +130,12 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                     skuSaleAttrValueEntity.setSkuId(skuInfoEntity.getSkuId());
                     skuSaleAttrValueService.save(skuSaleAttrValueEntity);
                 });
+                //6.4)会员价
+                SkuReductionTO skuReductionTO = new SkuReductionTO();
+                BeanUtils.copyProperties(sku,skuReductionTO);
+                skuReductionTO.setSkuId(skuInfoEntity.getSkuId());
+                List<MemberPriceVO> memberPrice = sku.getMemberPrice();
+                couponFeignService.saveSkuReduction(skuReductionTO);
             });
 
 
