@@ -14,10 +14,10 @@ import java.io.Serializable;
 public class BaseAttrsVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private int attrId;
+    private Long attrId;
 
     private String attrValues;
 
-    private int showDesc;
+    private Integer showDesc;
 
 }

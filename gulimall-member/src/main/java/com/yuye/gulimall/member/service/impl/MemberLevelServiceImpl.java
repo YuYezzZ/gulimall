@@ -21,7 +21,7 @@ public class MemberLevelServiceImpl extends ServiceImpl<MemberLevelDao, MemberLe
     public PageUtils queryPage(Map<String, Object> params) {
         String  key = (String) params.get("key");
         LambdaQueryWrapper<MemberLevelEntity> memberLevelEntityLambdaQueryWrapper = new LambdaQueryWrapper<>();
-        if(StringUtils.isEmpty(key)){
+        if(!StringUtils.isEmpty(key)){
             memberLevelEntityLambdaQueryWrapper.like(MemberLevelEntity::getName,key).or().like(MemberLevelEntity::getId,key);
         }
         IPage<MemberLevelEntity> page = this.page(

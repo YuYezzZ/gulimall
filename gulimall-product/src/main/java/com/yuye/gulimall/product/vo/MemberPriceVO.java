@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class MemberPriceVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private int id;
+    private Long id;
 
     private String name;
 

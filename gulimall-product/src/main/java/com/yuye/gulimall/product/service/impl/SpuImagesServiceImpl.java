@@ -10,6 +10,7 @@ import com.yuye.gulimall.product.entity.SpuImagesEntity;
 import com.yuye.gulimall.product.service.SpuImagesService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -24,6 +25,11 @@ public class SpuImagesServiceImpl extends ServiceImpl<SpuImagesDao, SpuImagesEnt
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public void saveList(List<SpuImagesEntity> spuImagesEntities) {
+        spuImagesEntities.parallelStream().forEach(s->baseMapper.insert(s));
     }
 
 }

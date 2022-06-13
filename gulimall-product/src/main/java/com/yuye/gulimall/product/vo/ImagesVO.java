@@ -16,6 +16,6 @@ public class ImagesVO implements Serializable {
 
     private String imgUrl;
 
-    private int defaultImg;
+    private Integer defaultImg;
 
 }

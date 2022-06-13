@@ -109,7 +109,7 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
     @Override
     public PageUtils noattrRelation(Map<String, Object> params, Long attrGroupId) {
 
-        List<AttrAttrgroupRelationEntity> attrAttrgroupRelationEntities = attrAttrgroupRelationDao.selectList(new LambdaQueryWrapper<AttrAttrgroupRelationEntity>().eq(AttrAttrgroupRelationEntity::getAttrGroupId, attrGroupId));
+        List<AttrAttrgroupRelationEntity> attrAttrgroupRelationEntities = attrAttrgroupRelationDao.selectList(new LambdaQueryWrapper<AttrAttrgroupRelationEntity>()/*.eq(AttrAttrgroupRelationEntity::getAttrGroupId, attrGroupId)*/);
         List<Long> attrIds = attrAttrgroupRelationEntities.stream().map(item -> item.getAttrId()).collect(Collectors.toList());
         String page = (String) params.get("page");
         String limit = (String) params.get("limit");
@@ -143,9 +143,11 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
             ArrayList<AttrFormVO> attrFormVOS = new ArrayList<>();
             attrAttrgroupRelationEntities.stream().forEach(attrAttrgroupRelationEntity -> {
                         Long attrId = attrAttrgroupRelationEntity.getAttrId();
-                        AttrEntity attrEntity = attrDao.selectById(attrId);
+                        AttrEntity attrEntity = attrDao.selectOne(new LambdaQueryWrapper<AttrEntity>().eq(AttrEntity::getAttrId,attrId).and(query->query.eq(AttrEntity::getAttrType,1)));
                         AttrFormVO attrFormVO = AttrEntityConvert.INSTANCE.attrEntityDTO2AttrFormVO(attrEntity);
-                        attrFormVOS.add(attrFormVO);
+                        if(attrFormVO != null){
+                            attrFormVOS.add(attrFormVO);
+                        }
                     }
             );
             item.setAttrs(attrFormVOS);

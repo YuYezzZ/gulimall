@@ -4,6 +4,7 @@ import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.product.entity.SpuInfoEntity;
 import com.yuye.gulimall.product.service.SpuInfoService;
+import com.yuye.gulimall.product.vo.SpuSaveVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -80,5 +81,14 @@ public class SpuInfoController {
 
         return R.ok();
     }
+    /**
+     * 删除
+     */
+    @RequestMapping("/save")
+    //@RequiresPermissions("product:spuinfo:save")
+    public R saveSpuInfo(@RequestBody SpuSaveVO spuSaveVO){
+        spuInfoService.saveSpuInfo(spuSaveVO);
 
+        return R.ok();
+    }
 }

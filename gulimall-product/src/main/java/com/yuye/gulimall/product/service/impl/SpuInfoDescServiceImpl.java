@@ -10,6 +10,7 @@ import com.yuye.gulimall.product.entity.SpuInfoDescEntity;
 import com.yuye.gulimall.product.service.SpuInfoDescService;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Map;
 
 
@@ -24,6 +25,11 @@ public class SpuInfoDescServiceImpl extends ServiceImpl<SpuInfoDescDao, SpuInfoD
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public void saveList(List<SpuInfoDescEntity> spuInfoDescEntities) {
+        spuInfoDescEntities.parallelStream().forEach(item->baseMapper.insert(item));
     }
 
 }

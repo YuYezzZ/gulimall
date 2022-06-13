@@ -23,5 +23,6 @@ public interface AttrService extends IService<AttrEntity> {
     AttrFormVO getAttrFormVOById(Long attrId);
 
     PageUtils queryPageBySale(Map<String, Object> params, Long catelogId);
+
 }
 

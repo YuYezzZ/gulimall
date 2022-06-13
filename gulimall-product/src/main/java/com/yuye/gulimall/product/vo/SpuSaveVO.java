@@ -12,16 +12,16 @@ import java.util.List;
  * @version: 1.0
  */
 @Data
-public class ProductVO implements Serializable {
+public class SpuSaveVO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String spuName;
 
     private String spuDescription;
 
-    private int catalogId;
+    private Long catalogId;
 
-    private int brandId;
+    private Long brandId;
 
     private double weight;
 

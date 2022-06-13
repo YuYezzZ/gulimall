@@ -29,17 +29,17 @@ public class SkusVO implements Serializable {
 
     private List<String> descar;
 
-    private int fullCount;
+    private Integer fullCount;
 
     private double discount;
 
-    private int countStatus;
+    private Integer countStatus;
 
-    private int fullPrice;
+    private Integer fullPrice;
 
-    private int reducePrice;
+    private Integer reducePrice;
 
-    private int priceStatus;
+    private Integer priceStatus;
 
     private List<MemberPriceVO> memberPrice;
 

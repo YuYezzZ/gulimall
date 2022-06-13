@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Data
 public class AttrVO implements Serializable {
     private static final long serialVersionUID = 1L;
-    private int attrId;
+    private Long attrId;
 
     private String attrName;
 
