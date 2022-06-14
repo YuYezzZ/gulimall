@@ -32,4 +32,20 @@ public class SpuImagesServiceImpl extends ServiceImpl<SpuImagesDao, SpuImagesEnt
         spuImagesEntities.parallelStream().forEach(s->baseMapper.insert(s));
     }
 
+    @Override
+    public void saveImages(Long spuId, List<String> images) {
+        if(images!=null && images.size()>0){
+            images.parallelStream().map(item -> {
+                SpuImagesEntity spuImagesEntity = new SpuImagesEntity();
+                spuImagesEntity.setImgUrl(item);
+                spuImagesEntity.setSpuId(spuId);
+                return spuImagesEntity;
+            }).forEach(image->baseMapper.insert(image));
+        }else{
+            SpuImagesEntity spuImagesEntity = new SpuImagesEntity();
+            spuImagesEntity.setSpuId(spuId);
+            baseMapper.insert(spuImagesEntity);
+        }
+    }
+
 }

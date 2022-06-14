@@ -4,13 +4,16 @@ import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.product.convert.AttrEntityConvert;
 import com.yuye.gulimall.product.entity.AttrEntity;
+import com.yuye.gulimall.product.entity.ProductAttrValueEntity;
 import com.yuye.gulimall.product.service.AttrAttrgroupRelationService;
 import com.yuye.gulimall.product.service.AttrService;
+import com.yuye.gulimall.product.service.ProductAttrValueService;
 import com.yuye.gulimall.product.vo.AttrFormVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -29,6 +32,8 @@ public class AttrController {
     private AttrService attrService;
     @Autowired
     private AttrAttrgroupRelationService attrAttrgroupRelationService;
+    @Autowired
+    private ProductAttrValueService productAttrValueService;
 
     /**
      * 列表
@@ -106,5 +111,14 @@ public class AttrController {
     public  R saleList(@RequestParam Map<String, Object> params,@PathVariable("catelogId") Long catelogId){
         PageUtils page = attrService.queryPageBySale(params,catelogId);
         return R.ok().put("page",page);
+    }
+
+    /*
+     * 获取spu规格
+     * */
+    @RequestMapping("/base/listforspu/{spuId}")
+    public  R baseListForSpu(@PathVariable("spuId") Long spuId){
+        List<ProductAttrValueEntity> productAttrValueEntities = productAttrValueService.getBySpuId(spuId);
+        return R.ok().put("data",productAttrValueEntities);
     }
 }

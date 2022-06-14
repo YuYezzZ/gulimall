@@ -3,6 +3,7 @@ package com.yuye.gulimall.product.vo;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.List;
 
 /**
@@ -23,7 +24,7 @@ public class SpuSaveVO implements Serializable {
 
     private Long brandId;
 
-    private double weight;
+    private BigDecimal weight;
 
     private int publishStatus;
 

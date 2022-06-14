@@ -4,18 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="商品品牌关联功能全部实现">
+    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="新增商品保存功能实现中">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/to/MemberPriceTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/to/MemberPriceTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/to/SkuReductionTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/to/SkuReductionTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/to/SpuBoundTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/src/main/java/com/yuye/gulimall/common/to/SpuBoundTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/controller/SkuFullReductionController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/controller/SkuFullReductionController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/service/SkuFullReductionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/service/SkuFullReductionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/service/impl/SkuFullReductionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-coupon/src/main/java/com/yuye/gulimall/coupon/service/impl/SkuFullReductionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/feign/CouponFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/feign/CouponFeignService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/AttrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/AttrController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/SpuInfoDescEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/SpuInfoDescEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/ProductAttrValueService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/ProductAttrValueService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuImagesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuImagesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuInfoDescService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuInfoDescService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/ProductAttrValueServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/ProductAttrValueServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuImagesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuImagesServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/BoundsVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/BoundsVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/MemberPriceVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/MemberPriceVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SkusVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SkusVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SpuSaveVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SpuSaveVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -281,6 +287,7 @@
       <workItem from="1654478606417" duration="2412000" />
       <workItem from="1654499052429" duration="5823000" />
       <workItem from="1655127479752" duration="8068000" />
+      <workItem from="1655165775648" duration="17951000" />
     </task>
     <task id="LOCAL-00001" summary="商品服务新增功能优化，新增修改功能">
       <created>1654076021320</created>
@@ -326,7 +333,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />
@@ -339,8 +345,33 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="2" />
+          <line>158</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
+          <line>155</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
+          <line>146</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
+          <line>88</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

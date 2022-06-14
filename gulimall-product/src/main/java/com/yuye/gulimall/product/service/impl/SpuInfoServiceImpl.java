@@ -1,7 +1,8 @@
 package com.yuye.gulimall.product.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yuye.gulimall.common.to.SkuReductionTO;
 import com.yuye.gulimall.common.to.SpuBoundTO;
@@ -12,12 +13,12 @@ import com.yuye.gulimall.product.entity.*;
 import com.yuye.gulimall.product.feign.CouponFeignService;
 import com.yuye.gulimall.product.service.*;
 import com.yuye.gulimall.product.vo.*;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -43,15 +44,50 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private SkuSaleAttrValueService skuSaleAttrValueService;
     @Autowired
     private CouponFeignService couponFeignService;
+    @Autowired
+    private BrandService brandService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
+        String catelogIdStr = (String) params.get("catelogId");
+        String brandIdStr = (String) params.get("brandId");
+        String key = (String) params.get("key");
+        String status = (String) params.get("status");
+        LambdaQueryWrapper<SpuInfoEntity> spuInfoEntityLambdaQueryWrapper = new LambdaQueryWrapper<>();
+        if(!StringUtils.isEmpty(catelogIdStr) && !catelogIdStr.equals("0")){
+            Long catelogId = Long.valueOf(catelogIdStr);
+            spuInfoEntityLambdaQueryWrapper.eq(SpuInfoEntity::getCatalogId,catelogId);
+        }
+        if(!StringUtils.isEmpty(brandIdStr) && !brandIdStr.equals("0")){
+            Long brandId = Long.valueOf(brandIdStr);
+            spuInfoEntityLambdaQueryWrapper.and(query->query.eq(SpuInfoEntity::getBrandId,brandId));
+        }
+        if(!StringUtils.isEmpty(key)){
+            spuInfoEntityLambdaQueryWrapper.and(query->query.like(SpuInfoEntity::getSpuName,key).or().like(SpuInfoEntity::getSpuDescription,key));
+        }
+        if(!StringUtils.isEmpty(status)){
+            spuInfoEntityLambdaQueryWrapper.and(query->query.eq(SpuInfoEntity::getPublishStatus, Integer.valueOf(status)));
+        }
         IPage<SpuInfoEntity> page = this.page(
                 new Query<SpuInfoEntity>().getPage(params),
-                new QueryWrapper<SpuInfoEntity>()
+                spuInfoEntityLambdaQueryWrapper
         );
+        IPage<SpuInfoVO> spuInfoVOPage = new Page<SpuInfoVO>();
+        spuInfoVOPage.setPages(page.getPages());
+        spuInfoVOPage.setCurrent(page.getCurrent());
+        spuInfoVOPage.setTotal(page.getTotal());
+        spuInfoVOPage.setSize(page.getSize());
 
-        return new PageUtils(page);
+        List<SpuInfoVO> spuInfoVOS = page.getRecords().parallelStream().map(item -> {
+            SpuInfoVO spuInfoVO = new SpuInfoVO();
+            BeanUtils.copyProperties(item, spuInfoVO);
+            Long itemBrandId = item.getBrandId();
+            BrandEntity brandEntity = brandService.getById(itemBrandId);
+            spuInfoVO.setBrandName(brandEntity.getName());
+            return spuInfoVO;
+        }).collect(Collectors.toList());
+        spuInfoVOPage.setRecords(spuInfoVOS);
+        return new PageUtils(spuInfoVOPage);
     }
 
     @Transactional
@@ -66,14 +102,13 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         Long spuId = spuInfoEntity.getId();
         //2.保存spu的描述图片 pms_spu_info_desc
         List<String> decript = spuSaveVO.getDecript();
-        ArrayList<SpuInfoDescEntity> spuInfoDescEntities = new ArrayList<>();
-        BeanUtils.copyProperties(decript,spuInfoDescEntities);
-        spuInfoDescService.saveList(spuInfoDescEntities);
+        SpuInfoDescEntity spuInfoDescEntity = new SpuInfoDescEntity();
+        spuInfoDescEntity.setSpuId(spuId);
+        spuInfoDescEntity.setDecript(String.join(",",decript));
+        spuInfoDescService.save(spuInfoDescEntity);
         //3.保存spu的图片集 pms_spu_images
         List<String> images = spuSaveVO.getImages();
-        ArrayList<SpuImagesEntity> spuImagesEntities = new ArrayList<>();
-        BeanUtils.copyProperties(images,spuImagesEntities);
-        spuImagesService.saveList(spuImagesEntities);
+        spuImagesService.saveImages(spuId,images);
         //4.保存spu的规格参数 pms_product_attr_value
         List<BaseAttrsVO> baseAttrs = spuSaveVO.getBaseAttrs();
         List<ProductAttrValueEntity> productAttrValueEntities = baseAttrs.stream().map(e -> {
@@ -82,6 +117,8 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             BeanUtils.copyProperties(e, productAttrValueEntity);
             productAttrValueEntity.setAttrName(attrEntity.getAttrName());
             productAttrValueEntity.setSpuId(spuId);
+            productAttrValueEntity.setAttrValue(e.getAttrValues());
+            productAttrValueEntity.setQuickShow(e.getShowDesc());
             return productAttrValueEntity;
         }).collect(Collectors.toList());
         productAttrValueService.saveList(productAttrValueEntities);
@@ -108,6 +145,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 if(skuImages != null && skuImages.size()>0) {
                     List<SkuImagesEntity> skuImagesEntities = skuImages.parallelStream().map(skuImage -> {
                         SkuImagesEntity skuImagesEntity = new SkuImagesEntity();
+                        BeanUtils.copyProperties(skuImage,skuImagesEntity);
                         Integer defaultImg = skuImage.getDefaultImg();
                         if (defaultImg == 1) {
                             skuInfoEntity.setSkuDefaultImg(skuImage.getImgUrl());

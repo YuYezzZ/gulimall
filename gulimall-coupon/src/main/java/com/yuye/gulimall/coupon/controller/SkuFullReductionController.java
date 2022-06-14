@@ -84,7 +84,7 @@ public class SkuFullReductionController {
     /**
      * 保存所有满减信息
      */
-    @RequestMapping("/save/info")
+    @PostMapping("/save/info")
     //@RequiresPermissions("coupon:skufullreduction:save")
     public R saveInfo(@RequestBody SkuReductionTO skuReductionTO){
 

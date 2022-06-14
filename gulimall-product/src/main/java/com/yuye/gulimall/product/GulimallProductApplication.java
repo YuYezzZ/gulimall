@@ -15,7 +15,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @MapperScan("com.yuye.gulimall.product.dao")/*mybatis-plus映射文件位置*/
 @EnableDiscoveryClient
-@EnableFeignClients(basePackages = "com.yuye.gulimall.product.feign")
+@EnableFeignClients("com.yuye.gulimall.product.feign")
 public class GulimallProductApplication {
     //程序入口
     public static void main(String[] args) {

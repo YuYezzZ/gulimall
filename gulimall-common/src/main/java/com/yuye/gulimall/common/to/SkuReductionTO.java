@@ -28,4 +28,68 @@ public class SkuReductionTO {
     private int priceStatus;
 
     private List<MemberPriceTO> memberPrice;
+
+    public void setSkuId(Long skuId){
+        this.skuId=skuId;
+    }
+
+    public Long getSkuId() {
+        return skuId;
+    }
+
+    public int getFullCount() {
+        return fullCount;
+    }
+
+    public void setFullCount(int fullCount) {
+        this.fullCount = fullCount;
+    }
+
+    public BigDecimal getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(BigDecimal discount) {
+        this.discount = discount;
+    }
+
+    public int getCountStatus() {
+        return countStatus;
+    }
+
+    public void setCountStatus(int countStatus) {
+        this.countStatus = countStatus;
+    }
+
+    public BigDecimal getFullPrice() {
+        return fullPrice;
+    }
+
+    public void setFullPrice(BigDecimal fullPrice) {
+        this.fullPrice = fullPrice;
+    }
+
+    public BigDecimal getReducePrice() {
+        return reducePrice;
+    }
+
+    public void setReducePrice(BigDecimal reducePrice) {
+        this.reducePrice = reducePrice;
+    }
+
+    public int getPriceStatus() {
+        return priceStatus;
+    }
+
+    public void setPriceStatus(int priceStatus) {
+        this.priceStatus = priceStatus;
+    }
+
+    public List<MemberPriceTO> getMemberPrice() {
+        return memberPrice;
+    }
+
+    public void setMemberPrice(List<MemberPriceTO> memberPrice) {
+        this.memberPrice = memberPrice;
+    }
 }
