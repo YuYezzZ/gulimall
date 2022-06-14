@@ -137,4 +137,6 @@ public class AttrGroupController {
        List<WithattrVO> withattrVOList= attrGroupService.selectWithattr(catelogId);
         return R.ok().put("data",withattrVOList);
     }
+
+
 }

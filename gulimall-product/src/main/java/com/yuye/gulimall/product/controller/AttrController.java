@@ -1,5 +1,6 @@
 package com.yuye.gulimall.product.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.product.convert.AttrEntityConvert;
@@ -120,5 +121,18 @@ public class AttrController {
     public  R baseListForSpu(@PathVariable("spuId") Long spuId){
         List<ProductAttrValueEntity> productAttrValueEntities = productAttrValueService.getBySpuId(spuId);
         return R.ok().put("data",productAttrValueEntities);
+    }
+
+    /**
+     * 修改spu规格
+     */
+    @RequestMapping("/update/{spuId}")
+    //@RequiresPermissions("product:attrgroup:update")
+    public R updateSpu(@RequestBody List<ProductAttrValueEntity> productAttrValueEntities,@PathVariable("spuId") Long spuId) {
+        productAttrValueEntities.parallelStream().forEach(item->{
+            item.setSpuId(spuId);
+            productAttrValueService.update(item,new LambdaQueryWrapper<ProductAttrValueEntity>().eq(ProductAttrValueEntity::getAttrId,item.getAttrId()).and(query->query.eq(ProductAttrValueEntity::getSpuId,spuId)));
+        });
+        return R.ok();
     }
 }

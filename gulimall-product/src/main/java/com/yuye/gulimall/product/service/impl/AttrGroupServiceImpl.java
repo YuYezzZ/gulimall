@@ -13,12 +13,10 @@ import com.yuye.gulimall.product.convert.AttrGroupEntityConvert;
 import com.yuye.gulimall.product.dao.AttrAttrgroupRelationDao;
 import com.yuye.gulimall.product.dao.AttrDao;
 import com.yuye.gulimall.product.dao.AttrGroupDao;
-import com.yuye.gulimall.product.entity.AttrAttrgroupRelationEntity;
-import com.yuye.gulimall.product.entity.AttrEntity;
-import com.yuye.gulimall.product.entity.AttrGroupEntity;
-import com.yuye.gulimall.product.entity.CategoryEntity;
+import com.yuye.gulimall.product.entity.*;
 import com.yuye.gulimall.product.service.AttrGroupService;
 import com.yuye.gulimall.product.service.CategoryService;
+import com.yuye.gulimall.product.service.ProductAttrValueService;
 import com.yuye.gulimall.product.vo.AttrFormVO;
 import com.yuye.gulimall.product.vo.WithattrVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +36,9 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
     private AttrAttrgroupRelationDao attrAttrgroupRelationDao;
     @Autowired
     private AttrDao attrDao;
+    @Autowired
+    private ProductAttrValueService productAttrValueService;
+
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         IPage<AttrGroupEntity> page = this.page(
@@ -155,7 +156,6 @@ public class AttrGroupServiceImpl extends ServiceImpl<AttrGroupDao, AttrGroupEnt
         }).collect(Collectors.toList());
         return collect;
     }
-
 
     /**
      * 查找父节点Id方法

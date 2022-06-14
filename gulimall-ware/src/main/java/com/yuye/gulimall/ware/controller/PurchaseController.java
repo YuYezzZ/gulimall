@@ -1,20 +1,15 @@
 package com.yuye.gulimall.ware.controller;
 
-import java.util.Arrays;
-import java.util.Map;
-
-//import org.apache.shiro.authz.annotation.RequiresPermissions;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
-
-import com.yuye.gulimall.ware.entity.PurchaseEntity;
-import com.yuye.gulimall.ware.service.PurchaseService;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
+import com.yuye.gulimall.ware.entity.PurchaseEntity;
+import com.yuye.gulimall.ware.service.PurchaseService;
+import com.yuye.gulimall.ware.vo.MergeVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Arrays;
+import java.util.Map;
 
 
 
@@ -86,5 +81,24 @@ public class PurchaseController {
 
         return R.ok();
     }
+    /**
+     * 未领用采购单
+     */
+    @RequestMapping("/unreceive/list")
+    //@RequiresPermissions("ware:purchase:list")
+    public R unreceiveList(@RequestParam Map<String, Object> params){
+        PageUtils page = purchaseService.unreceiveList(params);
 
+        return R.ok().put("page", page);
+    }
+
+    /**
+     * 合并采购需求单
+     */
+    @PostMapping("/merge")
+    //@RequiresPermissions("ware:purchase:list")
+    public R merge(@RequestBody MergeVO mergeVO){
+        purchaseService.merge(mergeVO);
+        return R.ok();
+    }
 }

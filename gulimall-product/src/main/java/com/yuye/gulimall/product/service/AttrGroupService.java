@@ -34,5 +34,6 @@ public interface AttrGroupService extends IService<AttrGroupEntity> {
     void saveList(List<AttrAttrgroupRelationEntity> list);
 
     List<WithattrVO> selectWithattr(Long catelogId);
+
 }
 
