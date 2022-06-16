@@ -1,0 +1,11 @@
+es:
+  address: jdbc:es://192.168.127.129
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.127.129:8848
+  application:
+    name: gulimall-search
+server:
+  port: 9201
