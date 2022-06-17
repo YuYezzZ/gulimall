@@ -1,7 +1,6 @@
 package com.yuye.gulimall.search.controller;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+
 import org.elasticsearch.xpack.sql.jdbc.EsDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +23,6 @@ import java.sql.Statement;
 public class TestController {
     @Value("${es.address}")
     private String address;
-    private final static Logger LOGGER = LogManager.getLogger(TestController.class);
     @GetMapping("/test")
     public ResultSet testConn() throws SQLException {
 

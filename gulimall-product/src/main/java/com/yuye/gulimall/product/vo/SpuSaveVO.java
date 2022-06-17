@@ -20,7 +20,7 @@ public class SpuSaveVO implements Serializable {
 
     private String spuDescription;
 
-    private Long catalogId;
+    private Long catelogId;
 
     private Long brandId;
 

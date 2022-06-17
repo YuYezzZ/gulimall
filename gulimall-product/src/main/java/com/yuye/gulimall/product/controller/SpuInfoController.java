@@ -1,5 +1,6 @@
 package com.yuye.gulimall.product.controller;
 
+import com.yuye.gulimall.common.to.SkuEsModelTO;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.product.entity.SpuInfoEntity;
@@ -8,7 +9,9 @@ import com.yuye.gulimall.product.vo.SpuSaveVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 
@@ -25,7 +28,6 @@ import java.util.Map;
 public class SpuInfoController {
     @Autowired
     private SpuInfoService spuInfoService;
-
     /**
      * 列表
      */
@@ -90,5 +92,15 @@ public class SpuInfoController {
         spuInfoService.saveSpuInfo(spuSaveVO);
 
         return R.ok();
+    }
+
+    /**
+     * 商品上架
+     */
+    @PostMapping("/up/{spuId}")
+    //@RequiresPermissions("product:spuinfo:save")
+    public R up(@PathVariable Long spuId){
+        List<SkuEsModelTO> skuEsModelTOList = spuInfoService.up(spuId);
+        return R.ok().put("data",skuEsModelTOList);
     }
 }

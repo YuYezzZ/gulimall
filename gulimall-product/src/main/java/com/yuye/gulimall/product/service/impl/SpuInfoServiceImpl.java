@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.yuye.gulimall.common.to.SkuEsModelTO;
 import com.yuye.gulimall.common.to.SkuReductionTO;
 import com.yuye.gulimall.common.to.SpuBoundTO;
 import com.yuye.gulimall.common.utils.PageUtils;
@@ -11,6 +12,7 @@ import com.yuye.gulimall.common.utils.Query;
 import com.yuye.gulimall.product.dao.SpuInfoDao;
 import com.yuye.gulimall.product.entity.*;
 import com.yuye.gulimall.product.feign.CouponFeignService;
+import com.yuye.gulimall.product.feign.WareFeignService;
 import com.yuye.gulimall.product.service.*;
 import com.yuye.gulimall.product.vo.*;
 import org.apache.commons.lang3.StringUtils;
@@ -46,6 +48,10 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private CouponFeignService couponFeignService;
     @Autowired
     private BrandService brandService;
+    @Autowired
+    private CategoryService categoryService;
+    @Autowired
+    private WareFeignService wareFeignService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -56,7 +62,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         LambdaQueryWrapper<SpuInfoEntity> spuInfoEntityLambdaQueryWrapper = new LambdaQueryWrapper<>();
         if(!StringUtils.isEmpty(catelogIdStr) && !catelogIdStr.equals("0")){
             Long catelogId = Long.valueOf(catelogIdStr);
-            spuInfoEntityLambdaQueryWrapper.eq(SpuInfoEntity::getCatalogId,catelogId);
+            spuInfoEntityLambdaQueryWrapper.eq(SpuInfoEntity::getCatelogId,catelogId);
         }
         if(!StringUtils.isEmpty(brandIdStr) && !brandIdStr.equals("0")){
             Long brandId = Long.valueOf(brandIdStr);
@@ -138,7 +144,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                 SkuInfoEntity skuInfoEntity = new SkuInfoEntity();
                 BeanUtils.copyProperties(sku,skuInfoEntity);
                 skuInfoEntity.setBrandId(spuInfoEntity.getBrandId());
-                skuInfoEntity.setCatalogId(spuInfoEntity.getCatalogId());
+                skuInfoEntity.setCatelogId(spuInfoEntity.getCatelogId());
                 skuInfoEntity.setSpuId(spuId);
                 skuInfoEntity.setSkuDefaultImg(null);
                 List<ImagesVO> skuImages = sku.getImages();
@@ -184,6 +190,46 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     @Override
     public void saveBaseSpuInfo(SpuInfoEntity spuInfoEntity) {
         baseMapper.insert(spuInfoEntity);
+    }
+
+    @Override
+    @Transactional
+    public List<SkuEsModelTO> up(Long spuId) {
+        SpuInfoEntity spuInfoEntity = baseMapper.selectById(spuId);
+        List<SkuInfoEntity> skuInfoEntities = skuInfoService.list(new LambdaQueryWrapper<SkuInfoEntity>().eq(SkuInfoEntity::getSpuId, spuId));
+        List<ProductAttrValueEntity> productAttrValueEntities = productAttrValueService.list(new LambdaQueryWrapper<ProductAttrValueEntity>().eq(ProductAttrValueEntity::getSpuId, spuId));
+        List<SkuEsModelTO.Attrs> attrsList = productAttrValueEntities.parallelStream().filter(productAttrValueEntity -> {
+            Long attrId = productAttrValueEntity.getAttrId();
+            AttrEntity attrEntity = attrService.getById(attrId);
+            return attrEntity.getSearchType() == 1;
+        }).map(e->{
+            SkuEsModelTO.Attrs attrs = new SkuEsModelTO.Attrs();
+            BeanUtils.copyProperties(e,attrs);
+            return attrs;
+        }).collect(Collectors.toList());
+        List<SkuEsModelTO> skuEsModelTOList = skuInfoEntities.parallelStream().map(item -> {
+            SkuEsModelTO skuEsModelTO = new SkuEsModelTO();
+            BeanUtils.copyProperties(item, skuEsModelTO);
+            skuEsModelTO.setSkuImg(item.getSkuDefaultImg());
+            skuEsModelTO.setSkuPrice(item.getPrice());
+            skuEsModelTO.setAttrs(attrsList);
+            Long brandId = item.getBrandId();
+            BrandEntity brandEntity = brandService.getById(brandId);
+            skuEsModelTO.setBrandName(brandEntity.getName());
+            skuEsModelTO.setBrandImg(brandEntity.getLogo());
+            Long catelogId = item.getCatelogId();
+            CategoryEntity categoryEntity =categoryService.getById(catelogId);
+            skuEsModelTO.setCatelogName(categoryEntity.getName());
+            boolean r = wareFeignService.hasStock(item.getSkuId());
+            skuEsModelTO.setHasStock(r);
+            //TODO 热度评分
+            skuEsModelTO.setHotScore(0L);
+
+            return  skuEsModelTO;
+        }).collect(Collectors.toList());
+        spuInfoEntity.setPublishStatus(1);
+        baseMapper.updateById(spuInfoEntity);
+        return skuEsModelTOList;
     }
 
 }

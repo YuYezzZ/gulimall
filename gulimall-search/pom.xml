@@ -16,6 +16,7 @@
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Greenwich.SR3</spring-cloud.version>
+        <elasticsearch.version>7.12.1</elasticsearch.version>
     </properties>
     <dependencies>
         <dependency>
@@ -26,12 +27,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <!--商城公共服务-->
         <dependency>
@@ -54,6 +49,12 @@
             <groupId>org.elasticsearch.plugin</groupId>
             <artifactId>x-pack-sql-jdbc</artifactId>
             <version>7.12.1</version>
+        </dependency>
+        <!--elasticsearch依赖-->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>${elasticsearch.version}</version>
         </dependency>
     </dependencies>
     <repositories>

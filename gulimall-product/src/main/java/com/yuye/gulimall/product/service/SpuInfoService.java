@@ -1,10 +1,12 @@
 package com.yuye.gulimall.product.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.yuye.gulimall.common.to.SkuEsModelTO;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.product.entity.SpuInfoEntity;
 import com.yuye.gulimall.product.vo.SpuSaveVO;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,5 +23,7 @@ public interface SpuInfoService extends IService<SpuInfoEntity> {
     void saveSpuInfo(SpuSaveVO spuSaveVO);
 
     void saveBaseSpuInfo(SpuInfoEntity spuInfoEntity);
+
+    List<SkuEsModelTO> up(Long spuId);
 }
 

@@ -4,13 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="新增商品保存功能实现中">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="仓库采购服务完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/SkuInfoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/SkuInfoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/SpuInfoEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/entity/SpuInfoEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SpuInfoVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SpuInfoVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SpuSaveVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SpuSaveVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/GulimallSearchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/GulimallSearchApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/controller/TestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/controller/TestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/resources/logback.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/test/java/com/yuye/gulimall/search/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/test/java/com/yuye/gulimall/search/SearchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/controller/WareSkuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/controller/WareSkuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/WareSkuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/WareSkuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/impl/WareSkuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/impl/WareSkuServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +33,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Kotlin File" />
         <option value="Class" />
       </list>
     </option>
@@ -88,8 +101,8 @@
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.yuye.gulimall.common.to" />
       <recent name="com.yuye.gulimall.product.feign" />
+      <recent name="com.yuye.gulimall.common.to" />
       <recent name="com.yuye.gulimall.product.config" />
       <recent name="com.yuye.gulimall.common.utils" />
     </key>
@@ -101,50 +114,18 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SearchTest.testConn">
-    <configuration name="GulimallProductApplicationTests.findParentIdstest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-product" />
+  <component name="RunManager" selected="JUnit.SearchTest.testSearchAgg">
+    <configuration name="SearchTest.testClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-search" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yuye.gulimall.product.*" />
+          <option name="PATTERN" value="com.yuye.gulimall.search.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.yuye.gulimall.product" />
-      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.product.GulimallProductApplicationTests" />
-      <option name="METHOD_NAME" value="findParentIdstest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GulimallProductApplicationTests.testAttrConvert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-product" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yuye.gulimall.product.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.yuye.gulimall.product" />
-      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.product.GulimallProductApplicationTests" />
-      <option name="METHOD_NAME" value="testAttrConvert" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GulimallProductApplicationTests.testSelectPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-product" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yuye.gulimall.product.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.yuye.gulimall.product" />
-      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.product.GulimallProductApplicationTests" />
-      <option name="METHOD_NAME" value="testSelectPage" />
+      <option name="PACKAGE_NAME" value="com.yuye.gulimall.search" />
+      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.search.SearchTest" />
+      <option name="METHOD_NAME" value="testClient" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -166,15 +147,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GulimallCouponApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-coupon" />
+    <configuration name="SearchTest.testIndex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-search" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.yuye.gulimall.coupon.*" />
+          <option name="PATTERN" value="com.yuye.gulimall.search.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.yuye.gulimall.coupon.GulimallCouponApplication" />
+      <option name="PACKAGE_NAME" value="com.yuye.gulimall.search" />
+      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.search.SearchTest" />
+      <option name="METHOD_NAME" value="testIndex" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTest.testSearch" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yuye.gulimall.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yuye.gulimall.search" />
+      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.search.SearchTest" />
+      <option name="METHOD_NAME" value="testSearch" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchTest.testSearchAgg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-search" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yuye.gulimall.search.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yuye.gulimall.search" />
+      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.search.SearchTest" />
+      <option name="METHOD_NAME" value="testSearchAgg" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -243,9 +259,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.GulimallProductApplicationTests.findParentIdstest" />
-      <item itemvalue="JUnit.GulimallProductApplicationTests.testAttrConvert" />
-      <item itemvalue="JUnit.GulimallProductApplicationTests.testSelectPage" />
+      <item itemvalue="JUnit.SearchTest.testConn" />
+      <item itemvalue="JUnit.SearchTest.testClient" />
+      <item itemvalue="JUnit.SearchTest.testIndex" />
+      <item itemvalue="JUnit.SearchTest.testSearch" />
+      <item itemvalue="JUnit.SearchTest.testSearchAgg" />
       <item itemvalue="Spring Boot.GulimallProduct" />
       <item itemvalue="Spring Boot.GulimallMember" />
       <item itemvalue="Spring Boot.GulimallGatewayApplication" />
@@ -255,16 +273,14 @@
       <item itemvalue="Spring Boot.RenrenApplication (1)" />
       <item itemvalue="Spring Boot.ThirdPartyApplication" />
       <item itemvalue="Spring Boot.GulimallSearchApplication" />
-      <item itemvalue="Spring Boot.GulimallCouponApplication" />
-      <item itemvalue="JUnit.SearchTest.testConn" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SearchTest.testSearchAgg" />
+        <item itemvalue="JUnit.SearchTest.testSearch" />
+        <item itemvalue="JUnit.SearchTest.testIndex" />
+        <item itemvalue="JUnit.SearchTest.testClient" />
         <item itemvalue="JUnit.SearchTest.testConn" />
-        <item itemvalue="Spring Boot.GulimallCouponApplication" />
-        <item itemvalue="JUnit.GulimallProductApplicationTests.testSelectPage" />
-        <item itemvalue="JUnit.GulimallProductApplicationTests.testAttrConvert" />
-        <item itemvalue="JUnit.GulimallProductApplicationTests.findParentIdstest" />
       </list>
     </recent_temporary>
   </component>
@@ -290,6 +306,10 @@
       <workItem from="1655165775648" duration="17951000" />
       <workItem from="1655381704819" duration="206000" />
       <workItem from="1655381921115" duration="9927000" />
+      <workItem from="1655430197656" duration="3605000" />
+      <workItem from="1655434361420" duration="11847000" />
+      <workItem from="1655456368877" duration="186000" />
+      <workItem from="1655456568023" duration="857000" />
     </task>
     <task id="LOCAL-00001" summary="商品服务新增功能优化，新增修改功能">
       <created>1654076021320</created>
@@ -335,7 +355,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />
@@ -348,32 +367,12 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
-          <line>158</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
-          <line>160</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
-          <line>155</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
-          <line>146</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
-          <line>54</line>
+          <line>60</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java</url>
-          <line>88</line>
+          <line>94</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
