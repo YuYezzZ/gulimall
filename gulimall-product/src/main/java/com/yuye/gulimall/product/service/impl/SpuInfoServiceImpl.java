@@ -12,9 +12,11 @@ import com.yuye.gulimall.common.utils.Query;
 import com.yuye.gulimall.product.dao.SpuInfoDao;
 import com.yuye.gulimall.product.entity.*;
 import com.yuye.gulimall.product.feign.CouponFeignService;
+import com.yuye.gulimall.product.feign.EsFeignService;
 import com.yuye.gulimall.product.feign.WareFeignService;
 import com.yuye.gulimall.product.service.*;
 import com.yuye.gulimall.product.vo.*;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ import java.util.stream.Collectors;
 
 
 @Service("spuInfoService")
+@Slf4j
 public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> implements SpuInfoService {
 
     @Autowired
@@ -52,6 +55,8 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
     private CategoryService categoryService;
     @Autowired
     private WareFeignService wareFeignService;
+    @Autowired
+    private EsFeignService esFeignService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -143,11 +148,15 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
                 SkuInfoEntity skuInfoEntity = new SkuInfoEntity();
                 BeanUtils.copyProperties(sku,skuInfoEntity);
+                log.info("保存sku信息：{}",skuInfoEntity);
+                skuInfoEntity.setPrice(sku.getPrice());
                 skuInfoEntity.setBrandId(spuInfoEntity.getBrandId());
                 skuInfoEntity.setCatelogId(spuInfoEntity.getCatelogId());
                 skuInfoEntity.setSpuId(spuId);
                 skuInfoEntity.setSkuDefaultImg(null);
+                skuInfoEntity.setSaleCount(0L);
                 List<ImagesVO> skuImages = sku.getImages();
+
                 if(skuImages != null && skuImages.size()>0) {
                     List<SkuImagesEntity> skuImagesEntities = skuImages.parallelStream().map(skuImage -> {
                         SkuImagesEntity skuImagesEntity = new SkuImagesEntity();
@@ -156,16 +165,14 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
                         if (defaultImg == 1) {
                             skuInfoEntity.setSkuDefaultImg(skuImage.getImgUrl());
                         }
-                        skuInfoService.save(skuInfoEntity);
                         Long skuId = skuInfoEntity.getSkuId();
                         skuImagesEntity.setSkuId(skuId);
                         return skuImagesEntity;
                     }).collect(Collectors.toList());
                     //6.2)sku的图片信息 pms_sku_images
                     skuImagesService.saveList(skuImagesEntities);
-                }else{
-                    skuInfoService.save(skuInfoEntity);
                 }
+                skuInfoService.save(skuInfoEntity);
                 //6.3)sku的销售属性信息
                 List<AttrVO> attr = sku.getAttr();
                 attr.parallelStream().forEach(attrVO -> {
@@ -194,7 +201,7 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
     @Override
     @Transactional
-    public List<SkuEsModelTO> up(Long spuId) {
+    public void up(Long spuId) {
         SpuInfoEntity spuInfoEntity = baseMapper.selectById(spuId);
         List<SkuInfoEntity> skuInfoEntities = skuInfoService.list(new LambdaQueryWrapper<SkuInfoEntity>().eq(SkuInfoEntity::getSpuId, spuId));
         List<ProductAttrValueEntity> productAttrValueEntities = productAttrValueService.list(new LambdaQueryWrapper<ProductAttrValueEntity>().eq(ProductAttrValueEntity::getSpuId, spuId));
@@ -202,15 +209,17 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             Long attrId = productAttrValueEntity.getAttrId();
             AttrEntity attrEntity = attrService.getById(attrId);
             return attrEntity.getSearchType() == 1;
-        }).map(e->{
+        }).map(e -> {
             SkuEsModelTO.Attrs attrs = new SkuEsModelTO.Attrs();
-            BeanUtils.copyProperties(e,attrs);
+            BeanUtils.copyProperties(e, attrs);
             return attrs;
         }).collect(Collectors.toList());
+        log.info("搜索属性：{}", attrsList);
         List<SkuEsModelTO> skuEsModelTOList = skuInfoEntities.parallelStream().map(item -> {
             SkuEsModelTO skuEsModelTO = new SkuEsModelTO();
             BeanUtils.copyProperties(item, skuEsModelTO);
             skuEsModelTO.setSkuImg(item.getSkuDefaultImg());
+            log.info("sku价格：{}", item.getPrice());
             skuEsModelTO.setSkuPrice(item.getPrice());
             skuEsModelTO.setAttrs(attrsList);
             Long brandId = item.getBrandId();
@@ -218,18 +227,19 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
             skuEsModelTO.setBrandName(brandEntity.getName());
             skuEsModelTO.setBrandImg(brandEntity.getLogo());
             Long catelogId = item.getCatelogId();
-            CategoryEntity categoryEntity =categoryService.getById(catelogId);
+            log.info("分类ID:{}", catelogId);
+            CategoryEntity categoryEntity = categoryService.getById(catelogId);
             skuEsModelTO.setCatelogName(categoryEntity.getName());
             boolean r = wareFeignService.hasStock(item.getSkuId());
+            log.info("是否有库存：{}", r);
             skuEsModelTO.setHasStock(r);
             //TODO 热度评分
             skuEsModelTO.setHotScore(0L);
 
-            return  skuEsModelTO;
+            return skuEsModelTO;
         }).collect(Collectors.toList());
         spuInfoEntity.setPublishStatus(1);
         baseMapper.updateById(spuInfoEntity);
-        return skuEsModelTOList;
+        esFeignService.saveProduct(skuEsModelTOList);
     }
-
 }

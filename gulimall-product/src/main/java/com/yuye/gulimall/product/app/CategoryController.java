@@ -1,4 +1,4 @@
-package com.yuye.gulimall.product.controller;
+package com.yuye.gulimall.product.app;
 
 
 import com.yuye.gulimall.common.utils.PageUtils;
@@ -9,6 +9,8 @@ import com.yuye.gulimall.product.service.CategoryBrandRelationService;
 import com.yuye.gulimall.product.service.CategoryService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
@@ -63,6 +65,11 @@ public class CategoryController {
     /**
      * 保存
      */
+
+    @Caching(evict={
+            @CacheEvict(value = {"catelog"},key = "'getCatelogJson'"),
+            @CacheEvict(value = {"catelog"},key = "'getLevel1Category'")
+    })
     @RequestMapping("/save")
     //@RequiresPermissions("product:category:save")
     public R save(@RequestBody CategoryEntity category){
@@ -73,6 +80,10 @@ public class CategoryController {
     /**
      * 修改
      */
+    @Caching(evict={
+            @CacheEvict(value = {"catelog"},key = "'getCatelogJson'"),
+            @CacheEvict(value = {"catelog"},key = "'getLevel1Category'")
+    })
     @RequestMapping("/update")
     //@RequiresPermissions("product:category:update")
     public R update(@RequestBody CategoryEntity category){
@@ -91,6 +102,10 @@ public class CategoryController {
     /**
      * 删除
      */
+    @Caching(evict={
+            @CacheEvict(value = {"catelog"},key = "'getCatelogJson'"),
+            @CacheEvict(value = {"catelog"},key = "'getLevel1Category'")
+    })
     @RequestMapping("/delete")
     //@RequiresPermissions("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
@@ -102,6 +117,10 @@ public class CategoryController {
     * 分类菜单拖拽工能实现
     * */
     @PostMapping("/list/drop")
+    @Caching(evict={
+            @CacheEvict(value = {"catelog"},key = "'getCatelogJson'"),
+            @CacheEvict(value = {"catelog"},key = "'getLevel1Category'")
+    })
     //@RequiresPermissions("product:category:delete")
     public R drop(@RequestBody List<CategoryEntity> categoryEntities){
         categoryService.updateBatchById(categoryEntities);

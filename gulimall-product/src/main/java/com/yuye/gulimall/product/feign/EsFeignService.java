@@ -1,8 +1,11 @@
 package com.yuye.gulimall.product.feign;
 
+import com.yuye.gulimall.common.to.SkuEsModelTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 /**
  * @Auther: yuye
@@ -10,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @Description: com.yuye.gulimall.product.feign
  * @version: 1.0
  */
-@FeignClient("gulimall-ware")
-public interface WareFeignService {
-    @PostMapping("/ware/waresku/hasStock")
-    boolean hasStock(@RequestBody Long skuId);
+@FeignClient("gulimall-search")
+public interface EsFeignService {
+    @PostMapping("/search/product/save")
+    void saveProduct(@RequestBody List<SkuEsModelTO> skuEsModelTOS);
 }

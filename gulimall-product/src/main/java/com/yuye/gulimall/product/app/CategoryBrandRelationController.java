@@ -1,4 +1,4 @@
-package com.yuye.gulimall.product.controller;
+package com.yuye.gulimall.product.app;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.yuye.gulimall.common.utils.PageUtils;

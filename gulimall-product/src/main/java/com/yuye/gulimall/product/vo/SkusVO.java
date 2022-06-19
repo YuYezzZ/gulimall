@@ -20,7 +20,7 @@ public class SkusVO implements Serializable {
 
     private String skuName;
 
-    private String price;
+    private BigDecimal price;
 
     private String skuTitle;
 

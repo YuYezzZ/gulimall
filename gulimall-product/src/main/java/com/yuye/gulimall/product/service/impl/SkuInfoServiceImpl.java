@@ -27,7 +27,7 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoDao, SkuInfoEntity> i
         LambdaQueryWrapper<SkuInfoEntity> skuInfoEntityLambdaQueryWrapper = new LambdaQueryWrapper<>();
         if(!StringUtils.isEmpty(catelogIdStr) && !catelogIdStr.equals("0")){
             Long catelogId = Long.valueOf(catelogIdStr);
-            skuInfoEntityLambdaQueryWrapper.eq(SkuInfoEntity::getCatalogId,catelogId);
+            skuInfoEntityLambdaQueryWrapper.eq(SkuInfoEntity::getCatelogId,catelogId);
         }
         if(!StringUtils.isEmpty(brandIdStr) && !brandIdStr.equals("0")){
             Long brandId = Long.valueOf(brandIdStr);

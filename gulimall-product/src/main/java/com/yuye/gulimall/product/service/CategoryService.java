@@ -3,6 +3,7 @@ package com.yuye.gulimall.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yuye.gulimall.common.utils.PageUtils;
 import com.yuye.gulimall.product.entity.CategoryEntity;
+import com.yuye.gulimall.product.vo.Catelog2Vo;
 
 import java.util.List;
 import java.util.Map;
@@ -21,5 +22,9 @@ public interface CategoryService extends IService<CategoryEntity> {
     List<CategoryEntity> treeList();
 
     void deleteByIds(List<Long> asList);
+
+    List<CategoryEntity> getLevel1Category();
+
+    Map<String,  List<Catelog2Vo>> getCatelogJson();
 }
 

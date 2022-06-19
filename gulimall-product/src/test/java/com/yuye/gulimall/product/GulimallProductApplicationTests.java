@@ -11,10 +11,12 @@ import com.yuye.gulimall.product.entity.CategoryEntity;
 import com.yuye.gulimall.product.service.BrandService;
 import com.yuye.gulimall.product.service.CategoryService;
 import com.yuye.gulimall.product.vo.AttrBaseVO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
@@ -27,6 +29,7 @@ import java.util.List;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Slf4j
 public class GulimallProductApplicationTests {
     @Autowired
     private BrandService brandService;
@@ -35,7 +38,24 @@ public class GulimallProductApplicationTests {
 
     @Autowired
     private CategoryDao categoryDao;
-    
+
+    @Autowired
+    private StringRedisTemplate redisTemplate;
+
+    //测试redis是否成功连接
+    @Test
+    public void redisSet(){
+        redisTemplate.opsForValue().set("aaa","dd");
+        String aaa = redisTemplate.opsForValue().get("aaa");
+        log.info("aaa:{}",aaa);
+    }
+
+    //测试redis是否成功连接
+    @Test
+    public void redisConn(){
+        log.info("连接对象：{}",redisTemplate);
+    }
+
     //测试品牌插入功能
     @Test
     public void insert(){

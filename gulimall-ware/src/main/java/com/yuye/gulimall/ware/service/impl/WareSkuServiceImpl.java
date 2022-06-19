@@ -39,7 +39,10 @@ public class WareSkuServiceImpl extends ServiceImpl<WareSkuDao, WareSkuEntity> i
     @Override
     public boolean hasStock(Long skuId) {
         WareSkuEntity wareSkuEntity = baseMapper.selectById(skuId);
-        return wareSkuEntity.getStock()>0;
+        if (wareSkuEntity!=null && wareSkuEntity.getStock()!=null){
+            return wareSkuEntity.getStock()>0;
+        }
+        return false;
     }
 
 }

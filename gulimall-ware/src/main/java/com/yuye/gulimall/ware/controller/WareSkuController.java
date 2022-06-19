@@ -83,8 +83,8 @@ public class WareSkuController {
     /*
     * 检查库存请求
     * */
-    @GetMapping("/hasStock/{skuId}")
-    public boolean hasStock(@PathVariable("skuId") Long skuId){
+    @PostMapping("/hasStock")
+    public boolean hasStock(@RequestBody Long skuId){
         boolean flag = wareSkuService.hasStock(skuId);
         return flag;
     }
