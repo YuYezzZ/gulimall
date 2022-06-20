@@ -14,7 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,8 +24,8 @@ import java.util.stream.Collectors;
 @Service("categoryService")
 @Slf4j
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;
+//    @Autowired
+//    StringRedisTemplate stringRedisTemplate;
     @Autowired
     RedissonClient redissonClient;
 

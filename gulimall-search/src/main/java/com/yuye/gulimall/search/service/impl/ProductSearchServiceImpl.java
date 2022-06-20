@@ -1,9 +1,13 @@
 package com.yuye.gulimall.search.service.impl;
 
 import com.alibaba.fastjson.JSON;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yuye.gulimall.common.to.SkuEsModelTO;
+import com.yuye.gulimall.common.utils.R;
 import com.yuye.gulimall.search.constant.ProductSearch;
+import com.yuye.gulimall.search.feign.ProductFeignService;
 import com.yuye.gulimall.search.service.ProductSearchService;
+import com.yuye.gulimall.search.vo.AttrFormVO;
 import com.yuye.gulimall.search.vo.SearchParam;
 import com.yuye.gulimall.search.vo.SearchResult;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +35,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,6 +52,8 @@ import java.util.stream.Collectors;
 public class ProductSearchServiceImpl implements ProductSearchService {
     @Autowired
     RestHighLevelClient client;
+    @Autowired
+    ProductFeignService productFeignService;
     @Override
     public SearchResult search(SearchParam searchParam) throws IOException {
         SearchSourceBuilder searchSourceBuilder = buildSearchSource(searchParam);
@@ -100,7 +108,7 @@ public class ProductSearchServiceImpl implements ProductSearchService {
             attrVo.setAttrName(attrName);
 
             //3、得到属性的所有值
-            ParsedStringTerms attrValueAgg = bucket.getAggregations().get("attrValuesAgg");
+            ParsedStringTerms attrValueAgg = bucket.getAggregations().get("attrValueAgg");
             List<String> attrValues = attrValueAgg.getBuckets().stream().map(item -> item.getKeyAsString()).collect(Collectors.toList());
             attrVo.setAttrValue(attrValues);
 
@@ -169,6 +177,41 @@ public class ProductSearchServiceImpl implements ProductSearchService {
             pageNavs.add(i);
         }
         result.setPageNavs(pageNavs);
+        log.info("返回结果处理：{}",result);
+        //面包屑导航
+        if (searchParam.getAttrs() != null && searchParam.getAttrs().size() > 0) {
+            List<SearchResult.NavVo> collect = searchParam.getAttrs().stream().map(attr -> {
+                //1、分析每一个attrs传过来的参数值
+                SearchResult.NavVo navVo = new SearchResult.NavVo();
+                String[] s = attr.split("_");
+                navVo.setNavValue(s[1]);
+                R r = productFeignService.attrInfo(Long.parseLong(s[0]));
+                if ("1".equals(r.get("code").toString())) {
+                    Object o = r.get("attr");
+                    ObjectMapper objectMapper = new ObjectMapper();
+                    AttrFormVO data = objectMapper.convertValue(o, AttrFormVO.class);
+                    navVo.setNavName(data.getAttrName());
+                } else {
+                    navVo.setNavName(s[0]);
+                }
+
+                //2、取消了这个面包屑以后，我们要跳转到哪个地方，将请求的地址url里面的当前置空
+                //拿到所有的查询条件，去掉当前
+                String encode = null;
+                try {
+                    encode = URLEncoder.encode(attr,"UTF-8");
+                    encode.replace("+","%20");  //浏览器对空格的编码和Java不一样，差异化处理
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                String replace = searchParam.get_queryString().replace("&attrs=" + attr, "");
+                navVo.setLink("http://search.gulimall.com/list.html?" + replace);
+
+                return navVo;
+            }).collect(Collectors.toList());
+
+            result.setNavs(collect);
+        }
         return result;
     }
 
@@ -201,10 +244,10 @@ public class ProductSearchServiceImpl implements ProductSearchService {
             String skuPriceStr = searchParam.getSkuPrice();
             String[] skuPrice = skuPriceStr.split("_");
             if(skuPrice.length==1){
-                RangeQueryBuilder skuPrice1 = QueryBuilders.rangeQuery("skuPrice").gte(skuPrice[1]);
+                RangeQueryBuilder skuPrice1 = QueryBuilders.rangeQuery("skuPrice").gte(skuPrice[0]);
                 queryBuilder.filter(skuPrice1);
             }else{
-                RangeQueryBuilder skuPrice1 = QueryBuilders.rangeQuery("skuPrice").gte(skuPrice[1]).lte(skuPrice[2]);
+                RangeQueryBuilder skuPrice1 = QueryBuilders.rangeQuery("skuPrice").gte(skuPrice[0]).lte(skuPrice[1]);
                 queryBuilder.filter(skuPrice1);
             }
         }
@@ -245,7 +288,8 @@ public class ProductSearchServiceImpl implements ProductSearchService {
 
         NestedAggregationBuilder attrsNested = AggregationBuilders.nested("attrsAgg", "attrs");
         TermsAggregationBuilder attrIdAgg = AggregationBuilders.terms("attrIdAgg").field("attrs.attrId");
-        attrIdAgg.subAggregation(AggregationBuilders.terms("attrValueAgg").field("attrs.attrValues").size(50));
+        attrIdAgg.subAggregation(AggregationBuilders.terms("attrNameAgg").field("attrs.attrName").size(1));
+        attrIdAgg.subAggregation(AggregationBuilders.terms("attrValueAgg").field("attrs.attrValue").size(50));
         attrsNested.subAggregation(attrIdAgg);
         searchSourceBuilder.aggregation(attrsNested);
         //分页

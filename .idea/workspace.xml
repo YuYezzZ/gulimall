@@ -7,12 +7,14 @@
     <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="仓库采购服务完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/MyRedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/MyRedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/AttrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/AttrController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/SpringCacheRedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/SpringCacheRedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/src/test/java/com/yuye/gulimall/search/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/test/java/com/yuye/gulimall/search/SearchTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/GulimallSearchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/GulimallSearchApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/controller/SearchProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/controller/ProductSearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/service/impl/ProductSearchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/service/impl/ProductSearchServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/resources/templates/list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +25,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -93,6 +95,7 @@
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources\templates" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.yuye.gulimall.search.vo" />
       <recent name="com.yuye.gulimall.product.feign" />
       <recent name="com.yuye.gulimall.common.to" />
       <recent name="com.yuye.gulimall.product.config" />
@@ -298,6 +301,7 @@
       <item itemvalue="JUnit.SearchTest.testSearch" />
       <item itemvalue="JUnit.GulimallProductApplicationTests.redisConn" />
       <item itemvalue="JUnit.GulimallProductApplicationTests.redisSet" />
+      <item itemvalue="JUnit.SearchTest.split" />
       <item itemvalue="Spring Boot.GulimallProduct-10088" />
       <item itemvalue="Spring Boot.GulimallProduct" />
       <item itemvalue="Spring Boot.GulimallMember" />
@@ -311,7 +315,6 @@
       <item itemvalue="Spring Boot.GulimallGatewayApplication" />
       <item itemvalue="Spring Boot.GulimallProduct -10089" />
       <item itemvalue="Spring Boot.GulimallProduct-10090" />
-      <item itemvalue="JUnit.SearchTest.split" />
     </list>
     <recent_temporary>
       <list>
@@ -397,6 +400,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />
@@ -411,11 +415,6 @@
           <url>file://$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/impl/PurchaseServiceImpl.java</url>
           <line>73</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/service/impl/ProductSearchServiceImpl.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

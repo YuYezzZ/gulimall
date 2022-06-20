@@ -827,7 +827,7 @@
                         <ul>
                             <li th:each="catalog : ${result.catalogs}">
                                 <a href="/static/search/#"
-                                   th:href="${'javascript:searchProducts(&quot;catalog3Id&quot;,'+catalog.catalogId+')'}"
+                                   th:href="${'javascript:searchProducts(&quot;catelog3Id&quot;,'+catalog.catalogId+')'}"
                                    th:text="${catalog.catalogName}">5.56英寸及以上
 
                                 </a>
@@ -2044,26 +2044,29 @@
 
     function replaceParamVal(url, paramName, replaceVal,forceAdd) {
         var oUrl = url.toString();
-        var nUrl;
         if (oUrl.indexOf(paramName) != -1) {
-            if( forceAdd ) {
+            if (forceAdd) {
+                var nUrl = "";
                 if (oUrl.indexOf("?") != -1) {
                     nUrl = oUrl + "&" + paramName + "=" + replaceVal;
                 } else {
                     nUrl = oUrl + "?" + paramName + "=" + replaceVal;
                 }
-            } else {
-                var re = eval('/(' + paramName + '=)([^&]*)/gi');
-                nUrl = oUrl.replace(re, paramName + '=' + replaceVal);
+                return nUrl;
+            }else{
+                var re = eval('/('+paramName+'=)([^&]*)/gi');
+                var nUrl = oUrl.replace(re,paramName+'='+replaceVal);
+                return nUrl;
             }
-        } else {
+        }else{
+            var nUrl = ""
             if (oUrl.indexOf("?") != -1) {
                 nUrl = oUrl + "&" + paramName + "=" + replaceVal;
             } else {
                 nUrl = oUrl + "?" + paramName + "=" + replaceVal;
             }
+            return nUrl;
         }
-        return nUrl;
     };
 
     $(".sort_a").click(function () {

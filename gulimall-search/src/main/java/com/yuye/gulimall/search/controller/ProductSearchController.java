@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
 /**
@@ -17,13 +18,14 @@ import java.io.IOException;
  * @version: 1.0
  */
 @Controller
-public class SearchProductController {
+public class ProductSearchController {
     @Autowired
     ProductSearchService productSearchService;
     @GetMapping({"/","/list.html"})
-    public String index(SearchParam searchParam, Model model) throws IOException {
-        SearchResult searchResult= productSearchService.search(searchParam);
-        model.addAttribute("searchResult",searchResult);
+    public String index(SearchParam searchParam, Model model, HttpServletRequest request) throws IOException {
+        searchParam.set_queryString(request.getQueryString());
+        SearchResult result= productSearchService.search(searchParam);
+        model.addAttribute("result",result);
         return "list";
     }
 }

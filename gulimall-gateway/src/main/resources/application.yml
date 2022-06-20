@@ -16,7 +16,13 @@ spring:
         - id: product-route
           uri: lb://gulimall-product
           predicates:
-            - Path=/api/product/**
+            - Path=/api/product/**,/hello
+          filters:
+            - RewritePath=/api/(?<segment>/?.*), /$\{segment}
+        - id: search-route
+          uri: lb://gulimall-search
+          predicates:
+            - Path=/api/search/**
           filters:
             - RewritePath=/api/(?<segment>/?.*), /$\{segment}
         - id: coupon-route
@@ -63,7 +69,6 @@ spring:
           uri: lb://gulimall-search
           predicates:
             - Host=search.gulimall.com
-
   application:
     name: gulimall-gateway
 server:

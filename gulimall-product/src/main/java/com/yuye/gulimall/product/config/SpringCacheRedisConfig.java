@@ -21,10 +21,10 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableConfigurationProperties(CacheProperties.class)
 public class SpringCacheRedisConfig {
     @Bean
-    RedisCacheConfiguration redisCacheConfiguration(CacheProperties cacheProperties) {
+    public RedisCacheConfiguration redisCacheConfiguration(CacheProperties cacheProperties) {
         RedisCacheConfiguration config =RedisCacheConfiguration.defaultCacheConfig();
-        config.serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()));
-        config.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
+        config=config.serializeKeysWith(RedisSerializationContext.SerializationPair.fromSerializer(new StringRedisSerializer()));
+        config=config.serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(new GenericJackson2JsonRedisSerializer()));
         CacheProperties.Redis redisProperties = cacheProperties.getRedis();
         if (redisProperties.getTimeToLive() != null) {
             config = config.entryTtl(redisProperties.getTimeToLive());
@@ -43,4 +43,5 @@ public class SpringCacheRedisConfig {
         }
         return config;
     }
+
 }
