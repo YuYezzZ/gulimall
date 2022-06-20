@@ -3,6 +3,7 @@ package com.yuye.gulimall.product.config;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * @version: 1.0
  */
 @Configuration
+@EnableCaching
 public class MyRedisConfig {
     @Bean
     RedissonClient getRedissonClient(){

@@ -3,7 +3,6 @@ package com.yuye.gulimall.product;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
@@ -17,7 +16,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @MapperScan("com.yuye.gulimall.product.dao")/*mybatis-plus映射文件位置*/
 @EnableDiscoveryClient
 @EnableFeignClients("com.yuye.gulimall.product.feign")
-@EnableCaching
 public class GulimallProductApplication {
     //程序入口
     public static void main(String[] args) {

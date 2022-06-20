@@ -5,38 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="仓库采购服务完成">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-common/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/GulimallProductApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/AttrAttrgroupRelationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/AttrAttrgroupRelationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/AttrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/AttrController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/AttrGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/AttrGroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/BrandController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/BrandController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/CategoryBrandRelationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/CategoryBrandRelationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/CategoryController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/CategoryController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/CommentReplayController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/CommentReplayController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/ProductAttrValueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/ProductAttrValueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SkuImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/SkuImagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SkuInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/SkuInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SkuSaleAttrValueController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/SkuSaleAttrValueController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuCommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/SpuCommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuImagesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/SpuImagesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/SpuInfoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/controller/SpuInfoDescController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/SpuInfoDescController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/feign/WareFeignService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/feign/WareFeignService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/CategoryService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SpuInfoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SpuInfoServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SkusVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/vo/SkusVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/test/java/com/yuye/gulimall/product/GulimallProductApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/test/java/com/yuye/gulimall/product/GulimallProductApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/controller/WareSkuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/controller/WareSkuController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/impl/WareSkuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/impl/WareSkuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/MyRedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/MyRedisConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-search/src/test/java/com/yuye/gulimall/search/SearchTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/test/java/com/yuye/gulimall/search/SearchTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +24,7 @@
       <list>
         <option value="Kotlin File" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -98,7 +75,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-product/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/vo" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3992359" />
@@ -109,11 +86,11 @@
       <recent name="com.yuye.gulimall.ware.vo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\java\com\yuye\gulimall\search\vo" />
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\java\com\yuye\gulimall\product\vo" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources\templates" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\resources" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-common\src\main\java\com\yuye\gulimall\common\valid" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.yuye.gulimall.product.feign" />
@@ -129,7 +106,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.GulimallProduct-10088">
+  <component name="RunManager" selected="JUnit.SearchTest.split">
     <configuration name="GulimallProductApplicationTests.redisConn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gulimall-product" />
       <extension name="coverage">
@@ -162,7 +139,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SearchTest.testIndex" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SearchTest.split" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gulimall-search" />
       <extension name="coverage">
         <pattern>
@@ -172,7 +149,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.yuye.gulimall.search" />
       <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.search.SearchTest" />
-      <option name="METHOD_NAME" value="testIndex" />
+      <option name="METHOD_NAME" value="split" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -317,7 +294,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.SearchTest.testIndex" />
       <item itemvalue="JUnit.SearchTest.testSearchAgg" />
       <item itemvalue="JUnit.SearchTest.testSearch" />
       <item itemvalue="JUnit.GulimallProductApplicationTests.redisConn" />
@@ -335,14 +311,15 @@
       <item itemvalue="Spring Boot.GulimallGatewayApplication" />
       <item itemvalue="Spring Boot.GulimallProduct -10089" />
       <item itemvalue="Spring Boot.GulimallProduct-10090" />
+      <item itemvalue="JUnit.SearchTest.split" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SearchTest.split" />
         <item itemvalue="JUnit.GulimallProductApplicationTests.redisSet" />
         <item itemvalue="JUnit.GulimallProductApplicationTests.redisConn" />
         <item itemvalue="JUnit.SearchTest.testSearch" />
         <item itemvalue="JUnit.SearchTest.testSearchAgg" />
-        <item itemvalue="JUnit.SearchTest.testIndex" />
       </list>
     </recent_temporary>
   </component>
@@ -420,7 +397,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />
@@ -435,6 +411,11 @@
           <url>file://$PROJECT_DIR$/gulimall-ware/src/main/java/com/yuye/gulimall/ware/service/impl/PurchaseServiceImpl.java</url>
           <line>73</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/service/impl/ProductSearchServiceImpl.java</url>
+          <line>170</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

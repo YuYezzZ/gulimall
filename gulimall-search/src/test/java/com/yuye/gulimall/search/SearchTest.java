@@ -51,6 +51,13 @@ public class SearchTest {
     private RestHighLevelClient client;
 
     @Test
+    public void split() {
+        String s = "500_";
+        String[] s1 = s.split("_");
+        log.info("长度：{}",s1.length);
+    }
+
+    @Test
     public void testConn() {
         log.info("全文检索地址是{}", address);
         try {
