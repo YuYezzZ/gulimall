@@ -7,14 +7,9 @@
     <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="仓库采购服务完成">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/AttrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/app/AttrController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/SpringCacheRedisConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/config/SpringCacheRedisConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/GulimallSearchApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/GulimallSearchApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/controller/SearchProductController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/controller/ProductSearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/service/impl/ProductSearchServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/service/impl/ProductSearchServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-search/src/main/resources/templates/list.html" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-search/src/main/resources/templates/list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/dao/SkuInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/dao/SkuInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SkuInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SkuInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +21,8 @@
       <list>
         <option value="Kotlin File" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -77,7 +72,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-search/src/main/java/com/yuye/gulimall/search/vo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-product/src/main/resources/templates" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3992359" />
@@ -88,11 +83,14 @@
       <recent name="com.yuye.gulimall.ware.vo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources\templates" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\java\com\yuye\gulimall\search\vo" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\java\com\yuye\gulimall\product\vo" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources\com\yuye\gulimall\product\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.yuye.gulimall.search.vo" />
@@ -400,7 +398,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />
