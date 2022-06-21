@@ -5,11 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4bb48242-83ae-4abf-8b79-3aeec12528b6" name="Changes" comment="仓库采购服务完成">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/dao/SkuInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/dao/SkuInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SkuInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/SkuInfoService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/service/impl/SkuInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/web/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/java/com/yuye/gulimall/product/web/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gulimall-product/src/test/java/com/yuye/gulimall/product/GulimallProductApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/gulimall-product/src/test/java/com/yuye/gulimall/product/GulimallProductApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +76,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="TODO_SCOPE" value="All Places" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-product/src/main/resources/templates" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/gulimall-auth/src/main/resources" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.3992359" />
@@ -83,13 +87,16 @@
       <recent name="com.yuye.gulimall.ware.vo" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-auth\src\main\resources" />
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-auth\src\main\java\com\yuye\gulimall\auto\service" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources\templates" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\java\com\yuye\gulimall\search\vo" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\resources" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources" />
-      <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\java\com\yuye\gulimall\product\vo" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\resources" />
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-search\src\main\resources\templates" />
+      <recent name="E:\Java项目\电商项目\gulimall\gulimall-auth\src\main\resources" />
       <recent name="E:\Java项目\电商项目\gulimall\gulimall-product\src\main\resources\com\yuye\gulimall\product\mapper" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -107,7 +114,23 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SearchTest.split">
+  <component name="RunManager" selected="JUnit.GulimallProductApplicationTests.executorConn">
+    <configuration name="GulimallProductApplicationTests.executorConn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="gulimall-product" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yuye.gulimall.product.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yuye.gulimall.product" />
+      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.product.GulimallProductApplicationTests" />
+      <option name="METHOD_NAME" value="executorConn" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="GulimallProductApplicationTests.redisConn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="gulimall-product" />
       <extension name="coverage">
@@ -167,22 +190,6 @@
       <option name="PACKAGE_NAME" value="com.yuye.gulimall.search" />
       <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.search.SearchTest" />
       <option name="METHOD_NAME" value="testSearch" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SearchTest.testSearchAgg" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="gulimall-search" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.yuye.gulimall.search.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.yuye.gulimall.search" />
-      <option name="MAIN_CLASS_NAME" value="com.yuye.gulimall.search.SearchTest" />
-      <option name="METHOD_NAME" value="testSearchAgg" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -295,7 +302,6 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.SearchTest.testSearchAgg" />
       <item itemvalue="JUnit.SearchTest.testSearch" />
       <item itemvalue="JUnit.GulimallProductApplicationTests.redisConn" />
       <item itemvalue="JUnit.GulimallProductApplicationTests.redisSet" />
@@ -313,14 +319,15 @@
       <item itemvalue="Spring Boot.GulimallGatewayApplication" />
       <item itemvalue="Spring Boot.GulimallProduct -10089" />
       <item itemvalue="Spring Boot.GulimallProduct-10090" />
+      <item itemvalue="JUnit.GulimallProductApplicationTests.executorConn" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.GulimallProductApplicationTests.executorConn" />
         <item itemvalue="JUnit.SearchTest.split" />
         <item itemvalue="JUnit.GulimallProductApplicationTests.redisSet" />
         <item itemvalue="JUnit.GulimallProductApplicationTests.redisConn" />
         <item itemvalue="JUnit.SearchTest.testSearch" />
-        <item itemvalue="JUnit.SearchTest.testSearchAgg" />
       </list>
     </recent_temporary>
   </component>
@@ -398,6 +405,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="商品服务新增功能优化，新增修改功能" />

@@ -19,6 +19,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ThreadPoolExecutor;
 
 
 @Service("skuInfoService")
@@ -30,6 +33,8 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoDao, SkuInfoEntity> i
     AttrGroupService attrGroupService;
     @Autowired
     SkuInfoDao dao;
+    @Autowired
+    ThreadPoolExecutor executor;
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
         String catelogIdStr = (String) params.get("catelogId");
@@ -63,24 +68,43 @@ public class SkuInfoServiceImpl extends ServiceImpl<SkuInfoDao, SkuInfoEntity> i
     }
 
     @Override
-    public SkuItemVO getItem(Long skuId) {
+    public SkuItemVO getItem(Long skuId) throws ExecutionException, InterruptedException {
         SkuItemVO skuItemVO = new SkuItemVO();
+       ;
+        CompletableFuture<SkuInfoEntity> skuInfoFuture = new CompletableFuture<SkuInfoEntity>().supplyAsync(() -> {
+            SkuInfoEntity skuInfoEntity = baseMapper.selectById(skuId);
+            skuItemVO.setInfo(skuInfoEntity);
+            log.info("当前线程id：{}",Thread.currentThread().getId());
+            return skuInfoEntity;
+        },executor);
 
-        SkuInfoEntity skuInfoEntity = baseMapper.selectById(skuId);
-        skuItemVO.setInfo(skuInfoEntity);
+        CompletableFuture<Void> spuItemAttrGroupFuture = skuInfoFuture.thenAcceptAsync((item) -> {
+            Long catelogId = item.getCatelogId();
+            Long spuId = item.getSpuId();
+            List<SkuItemVO.SpuItemAttrGroupVO> spuItemAttrGroupVOS = dao.getSpuAttrGroup(spuId, catelogId);
+            log.info("spu分组结果：{}", spuItemAttrGroupVOS);
+            skuItemVO.setAttrs(spuItemAttrGroupVOS);
+            log.info("当前线程id：{}",Thread.currentThread().getId());
+        },executor);
 
-        List<SkuImagesEntity> images = skuImagesService.list(new LambdaQueryWrapper<SkuImagesEntity>().eq(SkuImagesEntity::getSkuId, skuId));
-        skuItemVO.setImages(images);
+        CompletableFuture<Void> skuItemSaleAttrFuture = skuInfoFuture.thenAcceptAsync((item) -> {
+            Long spuId = item.getSpuId();
+            List<SkuItemVO.SkuItemSaleAttrVO> skuItemSaleAttrVOS = dao.getSkuItemSaleAttrVO(spuId);
+            log.info("sku销售属性：{}",skuItemSaleAttrVOS);
+            skuItemVO.setSaleAttr(skuItemSaleAttrVOS);
+            log.info("当前线程id：{}",Thread.currentThread().getId());
+        },executor);
 
-        Long catelogId = skuInfoEntity.getCatelogId();
-        Long spuId = skuInfoEntity.getSpuId();
-        List<SkuItemVO.SpuItemAttrGroupVO> spuItemAttrGroupVOS  =  dao.getSpuAttrGroup(spuId,catelogId);
-        log.info("spu分组结果：{}",spuItemAttrGroupVOS);
-        skuItemVO.setAttrs(spuItemAttrGroupVOS);
+        CompletableFuture<Void> imgFuture = new CompletableFuture<SkuImagesEntity>().runAsync(() -> {
+            List<SkuImagesEntity> images = skuImagesService.list(new LambdaQueryWrapper<SkuImagesEntity>().eq(SkuImagesEntity::getSkuId, skuId));
+            skuItemVO.setImages(images);
+            log.info("当前线程id：{}",Thread.currentThread().getId());
+        }, executor);
 
-        List<SkuItemVO.SkuItemSaleAttrVO> skuItemSaleAttrVOS = dao.getSkuItemSaleAttrVO(spuId);
-        log.info("sku销售属性：{}",skuItemSaleAttrVOS);
-        skuItemVO.setSaleAttr(skuItemSaleAttrVOS);
+
+        CompletableFuture.allOf(skuInfoFuture,spuItemAttrGroupFuture,skuItemSaleAttrFuture,imgFuture).get();
+
+        log.info("skuItemVO属性==================================={}",skuItemVO);
         return skuItemVO;
     }
 

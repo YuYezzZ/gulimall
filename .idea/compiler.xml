@@ -11,6 +11,7 @@
         <module name="gulimall-third-party" />
         <module name="gulimall-common" />
         <module name="renren-fast" />
+        <module name="gulimall-auth" />
         <module name="gulimall-order" />
         <module name="gulimall-search" />
         <module name="gulimall-ware" />
@@ -23,6 +24,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="gulimall-auth" options="-parameters" />
       <module name="gulimall-coupon" options="-parameters" />
       <module name="gulimall-gateway" options="-parameters" />
       <module name="gulimall-member" options="-parameters" />

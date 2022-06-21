@@ -20,6 +20,8 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Auther: yuye
@@ -41,7 +43,24 @@ public class GulimallProductApplicationTests {
 
     @Autowired
     private StringRedisTemplate redisTemplate;
+    @Autowired
+    ThreadPoolExecutor threadPoolExecutor;
 
+    @Test
+    //测试验证码服务
+    public void sms(){
+
+
+    }
+    //测试线程池是否配置
+    @Test
+    public void executorConn(){
+
+        log.info("线程池参数:{}",threadPoolExecutor.getCorePoolSize());
+        log.info("线程池参数:{}",threadPoolExecutor.getQueue());
+        log.info("线程池参数:{}",threadPoolExecutor.getMaximumPoolSize());
+        log.info("线程池参数:{}",threadPoolExecutor.getKeepAliveTime(TimeUnit.SECONDS));
+    }
     //测试redis是否成功连接
     @Test
     public void redisSet(){
