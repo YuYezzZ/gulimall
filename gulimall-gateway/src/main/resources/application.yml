@@ -69,6 +69,10 @@ spring:
           uri: lb://gulimall-search
           predicates:
             - Host=search.gulimall.com
+        - id: gulimall-auth-host
+          uri: lb://gulimall-auth
+          predicates:
+            - Host=auth.gulimall.com
   application:
     name: gulimall-gateway
 server:

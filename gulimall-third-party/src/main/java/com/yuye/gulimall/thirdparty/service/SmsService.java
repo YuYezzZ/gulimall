@@ -18,5 +18,5 @@ public interface SmsService {
      * @param verifiyKey 验证码的key
      * @param verifiyCode 验证码
      */
-    void checkVerifiyCode(String verifiyKey,String verifiyCode) ;
+    Boolean checkVerifiyCode(String verifiyKey,String verifiyCode) ;
 }

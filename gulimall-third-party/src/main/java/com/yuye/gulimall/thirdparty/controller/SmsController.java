@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.RestController;
  * @version: 1.0
  */
 @RestController
-@RequestMapping("/sms")
+@RequestMapping("/thirdparty/sms")
 public class SmsController {
     @Autowired
     SmsService smsService;
-    @PostMapping("/sendCode")
+    @PostMapping("/sendcode")
     public String sendMsg(@RequestParam String phone){
         String s = smsService.sendMsg(phone);
         return s;
     }
 
     @PostMapping("/check")
-    public void check(@RequestParam String phone){
-        smsService.checkVerifiyCode(phone,phone);
+    public Boolean check(@RequestParam("verifiyKey") String verifiyKey,@RequestParam("verifiyCode") String verifiyCode){
+       return smsService.checkVerifiyCode(verifiyKey,verifiyCode);
     }
 }

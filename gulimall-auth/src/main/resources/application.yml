@@ -7,5 +7,13 @@ spring:
     cache: false
   application:
     name: gulimall-auth
+  redis:
+    host: 192.168.127.129
+    port: 6379
+  session:
+    store-type: redis
+    redis:
+      flush-mode: on_save
+      namespace: spring:session
 server:
   port: 10050

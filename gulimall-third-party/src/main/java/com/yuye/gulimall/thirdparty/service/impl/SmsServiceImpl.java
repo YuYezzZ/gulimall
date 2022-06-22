@@ -22,7 +22,7 @@ import java.util.Map;
 public class SmsServiceImpl implements SmsService {
 
     @Value("${sms.url}")
-    String url;
+    String host;
 
     @Value("${sms.effectiveTime}")
     String effectiveTime;
@@ -40,7 +40,7 @@ public class SmsServiceImpl implements SmsService {
     public String sendMsg(String phone) {
 
         //向验证码服务发送请求的地址
-        String sms_url = url+"/generate?name=sms&effectiveTime="+effectiveTime;
+        String sms_url = host+"/generate?name=sms&effectiveTime="+effectiveTime;
 
         //请求体
         Map<String,Object> body = new HashMap<>();
@@ -80,9 +80,9 @@ public class SmsServiceImpl implements SmsService {
      * @param verifiyCode 验证码
      */
     @Override
-    public void checkVerifiyCode(String verifiyKey, String verifiyCode){
+    public Boolean checkVerifiyCode(String verifiyKey, String verifiyCode){
         //校验验证码的url
-        String url = "http://localhost:56085/sailing/verify?name=sms&verificationCode="+verifiyCode+"&verificationKey="+verifiyKey;
+        String url = host+"verify?name=sms&verificationCode="+verifiyCode+"&verificationKey="+verifiyKey;
 
         Map bodyMap = null;
         try {
@@ -95,6 +95,8 @@ public class SmsServiceImpl implements SmsService {
         }
         if(bodyMap == null || bodyMap.get("result") == null || !(Boolean) bodyMap.get("result")){
             log.error("验证码校验失败");
+            return false;
         }
+        return true;
     }
 }
