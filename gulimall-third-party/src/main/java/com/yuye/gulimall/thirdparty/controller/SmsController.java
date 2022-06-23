@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class SmsController {
     @Autowired
     SmsService smsService;
-    @PostMapping("/sendcode")
+    @PostMapping("/sendCode")
     public String sendMsg(@RequestParam String phone){
         String s = smsService.sendMsg(phone);
         return s;

@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @Description: com.yuye.gulimall.auth.feign
  * @version: 1.0
  */
-@FeignClient("gulimall-thridparty")
+@FeignClient("gulimall-third-party")
 public interface ThirdFeignService {
     @PostMapping("/thirdparty/sms/sendCode")
     String sendMsg(@RequestParam String phone);
 
-    @PostMapping("/check")
+    @PostMapping("/thirdparty/sms/check")
     Boolean check(@RequestParam("phone") String phone,@RequestParam("code") String code);
 }

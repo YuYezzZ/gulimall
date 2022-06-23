@@ -25,5 +25,6 @@ public class ItemController {
         SkuItemVO skuItemVO = skuInfoService.getItem(skuId);
         model.addAttribute("item",skuItemVO);
         return "item";
+
     }
 }

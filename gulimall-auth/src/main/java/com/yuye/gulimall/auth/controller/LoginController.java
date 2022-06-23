@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
@@ -34,10 +35,14 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/register")
-    public String register(@Validated UserRegisterVo userRegisterVo, RedirectAttributes attributes){
+    @GetMapping("/success")
+    public String authSuccess(String token){
+        log.info("token:{}",token);
+        return "login";
+    }
 
-        Boolean check = thirdFeignService.check(userRegisterVo.getPhone(), userRegisterVo.getCode());
+    @PostMapping("/register")
+    public String register(@Validated UserRegisterVo userRegisterVo, RedirectAttributes attributes){      Boolean check = thirdFeignService.check(userRegisterVo.getPhone(), userRegisterVo.getCode());
         if(check){
             R save = memberFeignService.save(userRegisterVo);
             if("0".equals(save.get("code"))) {
@@ -57,8 +62,10 @@ public class LoginController {
         }
     }
 
-    @PostMapping("/sms/sendcode")
-    public void sendcode(String phone){
+    @GetMapping("/sms/sendCode")
+    public R sendcode(@RequestParam String phone){
+        log.info("Phone:{}",phone);
         String code = thirdFeignService.sendMsg(phone);
+        return R.ok().put("data",code);
     }
 }
